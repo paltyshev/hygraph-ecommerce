@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useCart } from 'react-use-cart'
-import { loadStripe } from '@stripe/stripe-js'
+// import { loadStripe } from '@stripe/stripe-js'
 
 import Button from '@/components/ui/button'
 import {
@@ -17,7 +17,7 @@ import SEO from '@/components/seo'
 import { useSettingsContext } from '@/context/settings'
 import useSubmissionState from 'hooks/use-form-submission'
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+// const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 function Cart() {
   const {
@@ -44,46 +44,46 @@ function Cart() {
     updateItemQuantity(item.id, item.quantity + 1)
 
   const handleClick = async () => {
-    try {
-      setSubmissionLoading()
+    // try {
+    //   setSubmissionLoading()
 
-      const stripe = await stripePromise
+    //   const stripe = await stripePromise
 
-      const res = await fetch('/api/stripe/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          cancel_url: window.location.href,
-          currency: activeCurrency.code,
-          items,
-          locale: router.locale,
-          success_url: `${window.location.origin}/success`
-        })
-      })
+    //   const res = await fetch('/api/stripe/create-checkout-session', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       cancel_url: window.location.href,
+    //       currency: activeCurrency.code,
+    //       items,
+    //       locale: router.locale,
+    //       success_url: `${window.location.origin}/success`
+    //     })
+    //   })
 
-      if (!res.ok) {
-        const error = new Error(
-          'An error occurred while performing this request'
-        )
+    //   if (!res.ok) {
+    //     const error = new Error(
+    //       'An error occurred while performing this request'
+    //     )
 
-        error.info = await res.json()
-        error.status = res.status
+    //     error.info = await res.json()
+    //     error.status = res.status
 
-        throw error
-      }
+    //     throw error
+    //   }
 
-      const { session } = await res.json()
+    //   const { session } = await res.json()
 
-      await stripe.redirectToCheckout({
-        sessionId: session.id
-      })
+    //   await stripe.redirectToCheckout({
+    //     sessionId: session.id
+    //   })
 
-      setSubmissionSuccess()
-    } catch (error) {
-      setSubmissionError(error.info.message)
-    }
+    //   setSubmissionSuccess()
+    // } catch (error) {
+    //   setSubmissionError(error.info.message)
+    // }
   }
 
   if (isEmpty) return <p>Your cart is empty</p>
