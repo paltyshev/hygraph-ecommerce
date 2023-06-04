@@ -7,6 +7,7 @@ module.exports = {
     domains: ['media.graphassets.com']
   },
   experimental: {
+    scrollRestoration: true,
     workerThreads: false,
     cpus: 1
   }
