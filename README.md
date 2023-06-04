@@ -62,7 +62,7 @@ Project configuration for supported locales and currencies is managed in [`hygra
 module.exports = {
   locales: [
     {
-      value: 'en',
+      value: 'ru',
       label: 'English',
       default: true
     },

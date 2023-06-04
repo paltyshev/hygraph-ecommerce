@@ -1,14 +1,14 @@
 module.exports = {
   locales: [
     {
-      value: 'en',
-      label: 'English',
+      value: 'ru',
+      label: 'Русский',
       default: true
     }
   ],
   currencies: [
     {
-      code: 'GBP',
+      code: 'RUB',
       default: true
     }
   ]

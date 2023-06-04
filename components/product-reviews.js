@@ -55,7 +55,7 @@ function ProductReviews({ product }) {
                     </p>
                     <p className="text-sm leading-6 text-gray-500">
                       {review.name} &mdash;{' '}
-                      {new Intl.DateTimeFormat('en-US', {
+                      {new Intl.DateTimeFormat('ru-RU', {
                         dateStyle: 'medium'
                       }).format(new Date(review.createdAt))}
                     </p>
