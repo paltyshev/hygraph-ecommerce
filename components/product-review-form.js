@@ -5,7 +5,6 @@ import * as yup from 'yup'
 
 import Button from '@/ui/button'
 import Form from '@/ui/form'
-import { ProductReviewsQuery } from '@/graphql/queries/reviews'
 
 function ProductReviewForm({ product }) {
   const { handleSubmit, ...formMethods } = useForm({
@@ -21,7 +20,7 @@ function ProductReviewForm({ product }) {
 
   const onSubmit = async (data) => {
     mutate(
-      [ProductReviewsQuery, product.id],
+      product.id,
       async ({ reviews: { aggregate, edges } }) => {
         try {
           const { review } = await fetch(
@@ -58,13 +57,13 @@ function ProductReviewForm({ product }) {
       methods={formMethods}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Form.Input field="headline" />
+      <Form.Input field="headline" label="Заголовок" placeholder="Введите заголовок" />
       <div className="grid gap-4 md:grid-cols-2">
-        <Form.Input field="name" />
-        <Form.Input field="email" />
+        <Form.Input field="name" label="Имя" placeholder="Введите ваше имя" />
+        <Form.Input field="email" label="Email" placeholder="Введите ваш email" />
       </div>
-      <Form.Textarea field="content" />
-      <Button type="submit">Submit</Button>
+      <Form.Textarea field="content" label="Отзыв" placeholder="Напишите ваш отзыв" />
+      <Button type="submit">Отправить</Button>
     </Form>
   )
 }

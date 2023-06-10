@@ -123,7 +123,7 @@ function ProductPageUI({ product }) {
               className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
               htmlFor="quantity"
             >
-              Quantity
+              Количество
             </label>
             <div className="relative">
               <select
@@ -152,7 +152,7 @@ function ProductPageUI({ product }) {
             </div>
           </div>
         </div>
-        <Button onClick={addToCart}>Add to cart</Button>
+        <Button onClick={addToCart}>В корзину</Button>
 
         <ProductReviews product={product} />
       </div>

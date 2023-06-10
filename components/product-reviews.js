@@ -11,9 +11,9 @@ function ProductReviews({ product }) {
   const [isExpanded, setIsExpanded] = React.useState(true)
 
   const { data, error } = useSWR(
-    [ProductReviewsQuery, product.id],
-    (query, productId) => hygraphClient.request(query, { productId })
-  )
+    product.id,
+    (productId) => hygraphClient.request(ProductReviewsQuery, { productId })
+)
 
   const toggleExpanded = () => setIsExpanded((expanded) => !expanded)
 
@@ -25,7 +25,7 @@ function ProductReviews({ product }) {
           onClick={toggleExpanded}
         >
           <span className="font-medium text-gray-900">
-            Reviews{' '}
+            Отзывы{' '}
             {data && (
               <React.Fragment>({data.reviews.aggregate.count})</React.Fragment>
             )}
@@ -45,7 +45,7 @@ function ProductReviews({ product }) {
         <div className="pt-4">
           {!data ? (
             'loading'
-          ) : data.reviews.aggregate.count ? (
+          ) : (
             <div className="divide-y-2 space-y-4">
               {data.reviews.edges.map(({ node: review }) => (
                 <div key={review.id} className="first:pt-0 pt-4 space-y-4">
@@ -64,9 +64,9 @@ function ProductReviews({ product }) {
                 </div>
               ))}
             </div>
-          ) : (
-            <ProductReviewForm product={product} />
           )}
+          <p className="pt-8 pb-2 text-lg leading-6 font-medium text-gray-900">Оставьте отзыв на “{product.name}“</p>
+          <ProductReviewForm product={product} />
         </div>
       )}
     </div>

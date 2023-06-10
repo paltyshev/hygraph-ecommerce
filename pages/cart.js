@@ -3,8 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useCart } from 'react-use-cart'
-// import { loadStripe } from '@stripe/stripe-js'
-
 import Button from '@/components/ui/button'
 import {
   ChevronDownSmallIcon,
@@ -16,8 +14,6 @@ import getPageData from '@/lib/get-page-data'
 import SEO from '@/components/seo'
 import { useSettingsContext } from '@/context/settings'
 import useSubmissionState from 'hooks/use-form-submission'
-
-// const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 function Cart() {
   const {
@@ -44,46 +40,7 @@ function Cart() {
     updateItemQuantity(item.id, item.quantity + 1)
 
   const handleClick = async () => {
-    // try {
-    //   setSubmissionLoading()
-
-    //   const stripe = await stripePromise
-
-    //   const res = await fetch('/api/stripe/create-checkout-session', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //       cancel_url: window.location.href,
-    //       currency: activeCurrency.code,
-    //       items,
-    //       locale: router.locale,
-    //       success_url: `${window.location.origin}/success`
-    //     })
-    //   })
-
-    //   if (!res.ok) {
-    //     const error = new Error(
-    //       'An error occurred while performing this request'
-    //     )
-
-    //     error.info = await res.json()
-    //     error.status = res.status
-
-    //     throw error
-    //   }
-
-    //   const { session } = await res.json()
-
-    //   await stripe.redirectToCheckout({
-    //     sessionId: session.id
-    //   })
-
-    //   setSubmissionSuccess()
-    // } catch (error) {
-    //   setSubmissionError(error.info.message)
-    // }
+    router.push('/checkout')
   }
 
   if (isEmpty) return <p>Your cart is empty</p>
@@ -103,6 +60,7 @@ function Cart() {
                   src={item.image.url}
                   width={item.image.width}
                   height={item.image.height}
+                  alt={item[router.locale].name}
                 />
               </div>
               <div>

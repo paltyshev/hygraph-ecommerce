@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { FormProvider, useFormContext } from 'react-hook-form'
+import * as React from 'react';
+import { FormProvider, useFormContext, Controller } from 'react-hook-form';
 
-import { ChevronDownSmallIcon } from '@/components/icons'
+import { ChevronDownSmallIcon } from '@/components/icons';
 
 function Form({ children, methods, onSubmit, ...props }) {
   return (
@@ -10,7 +10,7 @@ function Form({ children, methods, onSubmit, ...props }) {
         {children}
       </form>
     </FormProvider>
-  )
+  );
 }
 
 const Input = React.forwardRef(
@@ -21,20 +21,22 @@ const Input = React.forwardRef(
       disabled = false,
       field,
       placeholder,
-      type = 'text'
+      type = 'text',
+      ...props
     },
     ref
   ) => {
     return (
       <fieldset className={className}>
         <input
-          id={field}
-          name={field}
+          id={field.name}
+          name={field.name}
           type={type}
           disabled={disabled}
           placeholder={placeholder}
           className="appearance-none min-w-0 w-full bg-white border border-gray-300 py-2 px-4 text-base rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder-gray-400"
           ref={ref}
+          {...props}
         />
         {children}
       </fieldset>
@@ -104,7 +106,8 @@ const Textarea = React.forwardRef(
       field,
       placeholder,
       rows = 4,
-      type = 'text'
+      type = 'text',
+      ...props
     },
     ref
   ) => {
@@ -119,6 +122,7 @@ const Textarea = React.forwardRef(
           rows={rows}
           className="appearance-none min-w-0 w-full bg-white border border-gray-300 py-2 px-4 text-base rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder-gray-400"
           ref={ref}
+          {...props}
         />
         {children}
       </fieldset>
@@ -127,55 +131,73 @@ const Textarea = React.forwardRef(
 )
 
 function FormInput(props) {
-  const { errors, register } = useFormContext()
+  const { control, errors } = useFormContext();
 
   return (
     <React.Fragment>
-      <Input ref={register} {...props}>
-        {errors?.[props.field] ? (
-          <p className="mt-2 text-red-700 text-sm">
-            {errors[props.field].message}
-          </p>
-        ) : null}
-      </Input>
+      <Controller
+        render={({ field }) => <Input {...field} {...props} />}
+        control={control}
+        name={props.field}
+        defaultValue=""
+      />
+      {errors?.[props.field] ? (
+        <p className="mt-2 text-red-700 text-sm">{errors[props.field].message}</p>
+      ) : null}
     </React.Fragment>
-  )
+  );
 }
 
 function FormSelect(props) {
-  const { errors, register } = useFormContext()
-
-  return (
-    <Select ref={register} {...props}>
-      {errors?.[props.field] ? (
-        <p className="mt-2 text-red-700 text-sm">
-          {errors[props.field].message}
-        </p>
-      ) : null}
-    </Select>
-  )
-}
-
-function FormTextarea(props) {
-  const { errors, register } = useFormContext()
+  const { control, errors } = useFormContext();
 
   return (
     <React.Fragment>
-      <Textarea ref={register} {...props}>
-        {errors?.[props.field] ? (
-          <p className="mt-2 text-red-700 text-sm">
-            {errors[props.field].message}
-          </p>
-        ) : null}
-      </Textarea>
+      <Controller
+        render={({ field }) => <Select {...field} {...props} />}
+        control={control}
+        name={props.field}
+        defaultValue=""
+      />
+      {errors?.[props.field] ? (
+        <p className="mt-2 text-red-700 text-sm">{errors[props.field].message}</p>
+      ) : null}
     </React.Fragment>
-  )
+  );
 }
 
-Form.Input = FormInput
-Form.Select = FormSelect
-Form.Textarea = FormTextarea
+function FormTextarea(props) {
+  const { control, errors } = useFormContext();
 
-export default Form
+  return (
+    <React.Fragment>
+      <Controller
+        render={({ field }) => <Textarea {...field} {...props} />}
+        control={control}
+        name={props.field}
+        defaultValue=""
+      />
+      {errors?.[props.field] ? (
+        <p className="mt-2 text-red-700 text-sm">{errors[props.field].message}</p>
+      ) : null}
+    </React.Fragment>
+  );
+}
 
-export { Input, Select, Textarea }
+function FormError({ error }) {
+  if (!error) {
+    return null;
+  }
+
+  return <p className="mt-2 text-red-700 text-sm">{error.message}</p>;
+}
+
+
+Form.Input = FormInput;
+Form.Select = FormSelect;
+Form.Textarea = FormTextarea;
+Form.Error = FormError;
+
+export default Form;
+
+export { Input, Select, Textarea };
