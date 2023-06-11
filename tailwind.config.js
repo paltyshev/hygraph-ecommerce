@@ -8,5 +8,7 @@ module.exports = {
       padding: ['first']
     }
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/typography'),
+  ]
 }
