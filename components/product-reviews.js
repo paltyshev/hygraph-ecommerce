@@ -46,7 +46,7 @@ function ProductReviews({ product }) {
           {!data ? (
             'loading'
           ) : (
-            <div className="text-sm divide-y-2 space-y-4">
+            <div className="text-sm md:text-base divide-y-2 space-y-4">
               {data.reviews.edges.map(({ node: review }) => (
                 <div key={review.id} className="first:pt-0 pt-4 space-y-4">
                   <div>

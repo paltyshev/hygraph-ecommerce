@@ -16,7 +16,7 @@ function ProductPageUI({ product }) {
   const { activeCurrency } = useSettingsContext()
   const [variantQuantity, setVariantQuantity] = React.useState(1)
   const [activeVariantId, setActiveVariantId] = React.useState(
-    router.query.variantId || product.variants[0].id
+    router.query.variantId || (product.variants && product.variants[0]?.id)
   )
 
   React.useEffect(() => {
@@ -74,7 +74,7 @@ function ProductPageUI({ product }) {
           </div>
         </div>
         <div className="md:py-3 lg:w-1/2">
-          <h1 className="font-bold text-3xl md:text-6xl mb-3 text-primary leading-tight">
+          <h1 className="font-bold text-2xl md:text-6xl mb-3 text-primary leading-tight">
             {product.name}
           </h1>
           <div className="mb-6">

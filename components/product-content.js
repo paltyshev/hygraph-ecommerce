@@ -35,7 +35,7 @@ function ProductContent({ product }) {
           ) : (
             <div className="divide-y-2 space-y-4">
               <div
-                className="prose text-sm"
+                className="prose text-sm md:text-base md:max-w-none"
                 dangerouslySetInnerHTML={{ __html: product.content.html }}
               />
             </div>
