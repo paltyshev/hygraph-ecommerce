@@ -2,13 +2,17 @@ import * as React from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { useCart } from 'react-use-cart'
+import dynamic from 'next/dynamic'
 
 import Button from '@/ui/button'
 import { ChevronDownSmallIcon } from '@/icons'
 import { formatCurrencyValue } from '@/utils/format-currency-value'
-// import ProductReviews from '@/components/product-reviews'
 import { useSettingsContext } from '@/context/settings'
 import ProductContent from './product-content'
+
+const ProductReviews = dynamic(() => import('@/components/product-reviews'), {
+  loading: () => <p>Loading...</p>
+})
 
 function ProductPageUI({ product }) {
   const { addItem } = useCart()
@@ -180,9 +184,9 @@ function ProductPageUI({ product }) {
       {product.content && (
         <ProductContent product={product} />
       )}
-      {/* <div className="my-8">
+      <div className="my-8">
         <ProductReviews product={product} />
-      </div> */}
+      </div>
     </div>
   )
 }
