@@ -74,7 +74,7 @@ function ProductPageUI({ product }) {
 
   return (
     <div>
-      <div className="lg:flex">
+      <div className="lg:flex lg:space-x-4">
         <div className="mb-8 md:mb-0 lg:w-1/2">
           <div className="w-full overflow-hidden relative bg-gainsboro rounded-lg">
             {/* <Image
