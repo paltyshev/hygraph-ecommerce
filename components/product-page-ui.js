@@ -9,9 +9,11 @@ import { ChevronDownSmallIcon } from '@/icons'
 import { formatCurrencyValue } from '@/utils/format-currency-value'
 import { useSettingsContext } from '@/context/settings'
 import ProductContent from './product-content'
+import ImageGallery from 'react-image-gallery'
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const ProductReviews = dynamic(() => import('@/components/product-reviews'), {
-  loading: () => <p>Loading...</p>
+  loading: () => <p>Загрузка...</p>
 })
 
 function ProductPageUI({ product }) {
@@ -35,8 +37,6 @@ function ProductPageUI({ product }) {
   const updateQuantity = (event) =>
     setVariantQuantity(Number(event.target.value))
   const updateVariant = (event) => setActiveVariantId(event.target.value)
-
-  const [primaryImage] = product.images
 
   const addToCart = () => {
     const itemMetadata = router.locales.reduce(
@@ -63,26 +63,57 @@ function ProductPageUI({ product }) {
     )
   }
 
+  const images = product.images.map((image) => ({
+    original: image.url,
+    thumbnail: image.url,
+    originalHeight: image.height,
+    originalWidth: image.width,
+    originalTitle: product.name,
+    originalAlt: product.name,
+  }))
+
   return (
     <div>
       <div className="lg:flex">
         <div className="mb-8 md:mb-0 lg:w-1/2">
           <div className="w-full overflow-hidden relative bg-gainsboro rounded-lg">
-            <Image
-              src={primaryImage.url}
-              height={primaryImage.height}
-              width={primaryImage.width}
+            {/* <Image
+              src={product.images[1].url}
+              height={product.images[1].height}
+              width={product.images[1].width}
               alt={product.name}
               title={product.name}
+            /> */}
+            <style jsx global>{`
+              .image-gallery.fullscreen-modal {background: #fff}
+              .image-gallery-content.fullscreen{background:#fff}
+            `}</style>
+            <ImageGallery
+              items={images}
+              renderItem={(item) => (
+                <Image
+                  src={item.original}
+                  alt={item.originalAlt}
+                  width={item.originalWidth}
+                  height={item.originalHeight}
+                  title={item.originalTitle}
+                  sizes='100vw'
+                />
+              )}
+              showThumbnails={false}
+              showNav={false}
+              useBrowserFullscreen={false}
+              showPlayButton={false}
+              showBullets={true}
             />
           </div>
         </div>
         <div className="md:py-3 lg:w-1/2">
-          <h1 className="font-bold text-2xl md:text-6xl mb-3 text-primary leading-tight">
+          <h1 className="font-bold text-xl md:text-6xl mb-3 text-primary leading-tight">
             {product.name}
           </h1>
           <div className="mb-6">
-            <p className="font-semibold text-2xl leading-8 text-gray-900">
+            <p className="font-semibold text-xl leading-8 text-yellow-500">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: product.price
