@@ -9,18 +9,18 @@ function ProductContent({ product }) {
 
   const toggleExpanded = () => setIsExpanded((expanded) => !expanded)
   const renderers = {
-    h1: ({ children }) => <h1 class="mb-4 text-4xl text-gray-900 md:text-5xl lg:text-6xl">{children}</h1>,
-    h2: ({ children }) => <h1 class="mb-4 text-3xl text-gray-900 md:text-5xl lg:text-6xl">{children}</h1>,
-    h3: ({ children }) => <h3 class="text-3xl">{children}</h3>,
-    h4: ({ children }) => <h4 class="">{children}</h4>,
-    h5: ({ children }) => <h5 class="text-xl">{children}</h5>,
-    h6: ({ children }) => <h6 class="text-large">{children}</h6>,
-    p: ({ children }) => <p class="prose text-sm md:text-base md:max-w-none">{children}</p>,
-    ul: ({ children }) => <ul class="list-disc list-inside my-4 text-lg">{children}</ul>,
-    ol: ({ children }) => <ol class="list-decimal pl-4 my-4">{children}</ol>,
-    li: ({ children }) => <li class="my-2">{children}</li>,
-    code: ({ children }) => <code class="bg-gray-100 dark:bg-gray-800 rounded-md p-2 text-sm">{children}</code>,
-    code_block: ({ children }) => <pre class="bg-gray-100 dark:bg-gray-800 overflow-y-scroll rounded-md p-2 text-sm">{children}</pre>,
+    h1: ({ children }) => <h1 className="mb-4 text-4xl text-gray-900 md:text-5xl lg:text-6xl">{children}</h1>,
+    h2: ({ children }) => <h1 className="mb-4 text-3xl text-gray-900 md:text-5xl lg:text-6xl">{children}</h1>,
+    h3: ({ children }) => <h3 className="text-3xl">{children}</h3>,
+    h4: ({ children }) => <h4 className="">{children}</h4>,
+    h5: ({ children }) => <h5 className="text-xl">{children}</h5>,
+    h6: ({ children }) => <h6 className="text-large">{children}</h6>,
+    p: ({ children }) => <p className="prose text-sm md:text-base md:max-w-none">{children}</p>,
+    ul: ({ children }) => <ul className="prose list-disc list-inside my-4 text-sm">{children}</ul>,
+    ol: ({ children }) => <ol className="list-decimal pl-4 my-4">{children}</ol>,
+    li: ({ children }) => <li className="my-2">{children}</li>,
+    code: ({ children }) => <code className="bg-gray-100 dark:bg-gray-800 rounded-md p-2 text-sm">{children}</code>,
+    code_block: ({ children }) => <pre className="bg-gray-100 dark:bg-gray-800 overflow-y-scroll rounded-md p-2 text-sm">{children}</pre>,
     bold: ({ children }) => <strong>{children}</strong>,
     img: ({ src, altText, handle, height, width }) => (
       <div
@@ -35,7 +35,6 @@ function ProductContent({ product }) {
           alt={altText}
           height={height}
           width={width}
-          objectFit="cover"
         />
       </div>
     )

@@ -43,11 +43,11 @@ function Cart() {
     router.push('/checkout')
   }
 
-  if (isEmpty) return <p>Your cart is empty</p>
+  if (isEmpty) return <p>Ваша корзина пуста</p>
 
   return (
     <React.Fragment>
-      <SEO title="Cart" />
+      <SEO title="Корзина" />
       {items.map((item) => {
         return (
           <div
@@ -63,17 +63,19 @@ function Cart() {
                   alt={item[router.locale].name}
                 />
               </div>
-              <div>
-                <Link href={`/products/${item[router.locale].slug}`} className="text-gray-800 font-medium text-sm md:text-base">
-                  {item[router.locale].name}
-                </Link>
+              <div className="w-4/5">
+                <div className="grid">
+                  <Link href={`/products/${item[router.locale].slug}`} className="truncate text-gray-800 font-medium text-sm md:text-base pr-5">
+                    {item[router.locale].name}
+                  </Link>
+                </div>
                 <button
                   className="text-gray-400 hover:text-indigo-600 text-xs flex items-center focus:outline-none"
                   onClick={() => removeItem(item.id)}
                   disabled={submissionLoading}
                 >
                   <XSmallIcon className="h-3 w-3" />
-                  Remove
+                  Удалить
                 </button>
               </div>
             </div>
@@ -117,8 +119,8 @@ function Cart() {
       <div className="mt-3 md:mt-6 py-3 md:py-6 border-t-2 border-gray-50">
         <div className="flex flex-col items-end">
           <div className="flex flex-col items-end mb-3">
-            <span className="text-gray-700">Sub total</span>
-            <span className="text-xl font-bold text-indigo-600">
+            <span className="text-gray-700">Подитог:</span>
+            <span className="text-xl font-bold ">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: cartTotal
@@ -126,7 +128,7 @@ function Cart() {
             </span>
           </div>
           <Button onClick={handleClick} disabled={submissionLoading}>
-            Checkout
+            Оформить заказ
           </Button>
         </div>
       </div>

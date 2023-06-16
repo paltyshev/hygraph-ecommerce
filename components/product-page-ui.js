@@ -61,6 +61,8 @@ function ProductPageUI({ product }) {
       },
       variantQuantity
     )
+
+    router.push('/cart')
   }
 
   const images = product.images.map((image) => ({
