@@ -1,6 +1,11 @@
-export { default as ChevronDownSmallIcon } from './chevron-down-small'
-export { default as ChevronUpSmallIcon } from './chevron-up-small'
-export { default as GitHubIcon } from './github'
-export { default as ShoppingCartIcon } from './shopping-cart'
-export { default as TwitterIcon } from './twitter'
-export { default as XSmallIcon } from './x-small'
+export { default as ChevronDownSmallIcon } from './chevron-down-small';
+export { default as ChevronUpSmallIcon } from './chevron-up-small';
+export { default as GitHubIcon } from './github';
+export { default as ShoppingCartIcon } from './shopping-cart';
+export { default as TwitterIcon } from './twitter';
+export { default as XSmallIcon } from './x-small';
+export { default as FiHomeIcon } from './fi-home';
+export { default as FiCreditCardIcon } from './fi-credit-card';
+export { default as FiMenuIcon } from './fi-menu';
+export { default as FiTruckIcon } from './fi-truck';
+export { default as FiShoppingCartIcon } from './fi-shopping-cart';
