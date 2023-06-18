@@ -11,6 +11,8 @@ import { useSettingsContext } from '@/context/settings'
 import ProductContent from './product-content'
 import ImageGallery from 'react-image-gallery'
 import "react-image-gallery/styles/css/image-gallery.css";
+import QuantitySelector from './quantity-selector'
+import { SfButton, SfIconAddShoppingCart } from '@storefront-ui/react';
 
 const ProductReviews = dynamic(() => import('@/components/product-reviews'), {
   loading: () => <p>Загрузка...</p>
@@ -191,27 +193,13 @@ function ProductPageUI({ product }) {
                     />
                   </div>
                 </div>
+                <QuantitySelector onChange={updateQuantity} />
                 <div className="flex-auto">
-                  <Button onClick={addToCart}>В корзину <svg
-                    className="ml-2"
-                    width="25"
-                    height="24"
-                    viewBox="0 0 25 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M12.5 2C10.2909 2 8.5 3.79086 8.5 6V7H7.5C5.84315 7 4.5 8.34315 4.5 10V19C4.5 20.6569 5.84315 22 7.5 22H17.5C19.1569 22 20.5 20.6569 20.5 19V10C20.5 8.34315 19.1569 7 17.5 7H16.5V6C16.5 3.79086 14.7091 2 12.5 2ZM14.5 9V11H16.5V9H17.5C18.0523 9 18.5 9.44772 18.5 10V19C18.5 19.5523 18.0523 20 17.5 20H7.5C6.94772 20 6.5 19.5523 6.5 19V10C6.5 9.44772 6.94772 9 7.5 9H8.5V11H10.5V9H14.5ZM14.5 7V6C14.5 4.89543 13.6046 4 12.5 4C11.3954 4 10.5 4.89543 10.5 6V7H14.5Z"
-                      fill="#212121"
-                    />
-                  </svg></Button>
+                  <SfButton onClick={addToCart} className="w-full" slotSuffix={<SfIconAddShoppingCart />}>В корзину</SfButton>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
       {product.content && (
