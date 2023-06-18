@@ -8,8 +8,10 @@ import {
 } from '@/icons';
 
 function NavbarBottom() {
+  const cartItemsCount = 5;
+
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-between items-center bg-white px-4 py-2">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-between items-center bg-white px-4 py-2">
       <Link
         href="/"
         className="flex basis-full flex-col items-center justify-center text-gray-600 hover:text-gray-900"
@@ -40,9 +42,17 @@ function NavbarBottom() {
       </Link>
       <Link
         href="/cart"
-        className="flex basis-full flex-col items-center justify-center text-gray-600 hover:text-gray-900"
+        className="flex relative basis-full flex-col items-center justify-center text-gray-600 hover:text-gray-900"
       >
         <FiShoppingCartIcon size={20} />
+
+        <div class="top-0 absolute left-10">
+          {cartItemsCount > 0 && (
+            <p class="flex h-1 w-1 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">
+              {cartItemsCount}
+            </p>
+          )}
+        </div>
         <span className="text-xs mt-1">Корзина</span>
       </Link>
     </div>
