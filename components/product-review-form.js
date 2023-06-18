@@ -67,13 +67,13 @@ function ProductReviewForm({ product }) {
           field="name"
           label="Имя"
           placeholder="Введите ваше имя"
-          autocomplete="name"
+          autoComplete="name"
         />
         <Form.Input
           field="email"
           label="Email"
           placeholder="Введите ваш email"
-          autocomplete="email"
+          autoComplete="email"
         />
       </div>
       <Form.Textarea

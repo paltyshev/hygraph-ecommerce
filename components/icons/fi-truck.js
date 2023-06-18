@@ -7,10 +7,9 @@ function FiTruck(props) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="feather feather-truck"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <rect x="1" y="3" width="15" height="13"></rect>
       <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
