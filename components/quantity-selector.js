@@ -24,6 +24,8 @@ const QuantitySelector = ({ onChange, defaultValue = 1 }) => {
         -
       </button>
       <input
+        id="quantity"
+        name="quantity"
         className="h-12 appearance-none  bg-gainsboro border-l-0 border-r-0 border-2 border-gainsboro py-2 px-4 rounded-none w-10 text-center"
         value={quantity}
         onChange={(e) => {

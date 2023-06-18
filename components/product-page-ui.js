@@ -175,9 +175,8 @@ function ProductPageUI({ product }) {
                 />
                 <div className="flex-auto">
                   <Button onClick={addToCart}>
-                    В корзину{' '}
                     <svg
-                      className="ml-2"
+                      className="mr-1"
                       width="25"
                       height="24"
                       viewBox="0 0 25 24"
@@ -191,6 +190,7 @@ function ProductPageUI({ product }) {
                         fill="#212121"
                       />
                     </svg>
+                    В корзину
                   </Button>
                 </div>
               </div>
