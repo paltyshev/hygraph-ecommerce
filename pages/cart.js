@@ -109,7 +109,7 @@ function Cart() {
                     currency: activeCurrency,
                     value: item.price
                   })}{' '}
-                  each
+                  за шт.
                 </p>
               )}
             </div>

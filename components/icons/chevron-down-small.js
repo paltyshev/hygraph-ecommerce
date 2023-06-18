@@ -12,7 +12,7 @@ function ChevronDownSmall(props) {
         fillRule="evenodd"
       />
     </svg>
-  )
+  );
 }
 
-export default ChevronDownSmall
+export default ChevronDownSmall;
