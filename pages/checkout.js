@@ -54,7 +54,7 @@ export default function Checkout() {
     <div>
       <h1>Оформление заказа</h1>
       <Form
-        className="space-y-4"
+        className="space-y-4 mt-4"
         methods={formMethods}
         onSubmit={formMethods.handleSubmit(onSubmit)}
       >
