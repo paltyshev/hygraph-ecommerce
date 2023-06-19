@@ -6,9 +6,11 @@ import {
   FiTruckIcon,
   FiShoppingCartIcon,
 } from '@/icons';
+import { useCart } from 'react-use-cart'
 
 function NavbarBottom() {
-  const cartItemsCount = 5;
+  const { totalItems } = useCart()
+  const cartItemsCount = totalItems
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-between items-center bg-white px-4 py-2">
@@ -48,7 +50,7 @@ function NavbarBottom() {
 
         <div class="top-0 absolute left-10">
           {cartItemsCount > 0 && (
-            <p class="flex h-1 w-1 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">
+            <p class="flex h-1 w-1 items-center justify-center rounded-full bg-yellow-500 p-2 text-xs text-white">
               {cartItemsCount}
             </p>
           )}

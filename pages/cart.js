@@ -1,49 +1,45 @@
-import * as React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useCart } from 'react-use-cart'
-import Button from '@/components/ui/button'
+import * as React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useCart } from 'react-use-cart';
+import Button from '@/components/ui/button';
 import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,
-  XSmallIcon
-} from '@/components/icons'
-import { formatCurrencyValue } from '@/utils/format-currency-value'
-import getPageData from '@/lib/get-page-data'
-import SEO from '@/components/seo'
-import { useSettingsContext } from '@/context/settings'
-import useSubmissionState from 'hooks/use-form-submission'
+  XSmallIcon,
+} from '@/components/icons';
+import { formatCurrencyValue } from '@/utils/format-currency-value';
+import getPageData from '@/lib/get-page-data';
+import SEO from '@/components/seo';
+import { useSettingsContext } from '@/context/settings';
+import useSubmissionState from 'hooks/use-form-submission';
+import FreeShippingBanner from '@/components/free-shipping-banner';
 
 function Cart() {
-  const {
-    cartTotal,
-    isEmpty,
-    items,
-    removeItem,
-    updateItemQuantity
-  } = useCart()
-  const router = useRouter()
-  const { activeCurrency } = useSettingsContext()
+  const { cartTotal, isEmpty, items, removeItem, updateItemQuantity } =
+    useCart();
+  const router = useRouter();
+  const { activeCurrency } = useSettingsContext();
   const {
     setSubmissionError,
     setSubmissionLoading,
     submissionError,
     submissionLoading,
-    submissionState
-  } = useSubmissionState()
+    submissionState,
+  } = useSubmissionState();
 
   const decrementItemQuantity = (item) =>
-    updateItemQuantity(item.id, item.quantity - 1)
+    updateItemQuantity(item.id, item.quantity - 1);
 
   const incrementItemQuantity = (item) =>
-    updateItemQuantity(item.id, item.quantity + 1)
+    updateItemQuantity(item.id, item.quantity + 1);
 
   const handleClick = async () => {
-    router.push('/checkout')
-  }
+    router.push('/checkout');
+  };
 
-  if (isEmpty) return <p>Ваша корзина пуста</p>
+  if (isEmpty) return <p>Ваша корзина пуста</p>;
 
   return (
     <React.Fragment>
@@ -65,7 +61,10 @@ function Cart() {
               </div>
               <div className="w-4/5">
                 <div className="grid">
-                  <Link href={`/products/${item[router.locale].slug}`} className="truncate text-gray-800 font-medium text-sm md:text-base pr-5">
+                  <Link
+                    href={`/products/${item[router.locale].slug}`}
+                    className="truncate text-gray-800 font-medium text-sm md:text-base pr-5"
+                  >
                     {item[router.locale].name}
                   </Link>
                 </div>
@@ -100,22 +99,23 @@ function Cart() {
               <p className="font-medium text-gray-800">
                 {formatCurrencyValue({
                   currency: activeCurrency,
-                  value: item.itemTotal
+                  value: item.itemTotal,
                 })}
               </p>
               {item.quantity > 1 && (
                 <p className="text-gray-400 text-sm">
                   {formatCurrencyValue({
                     currency: activeCurrency,
-                    value: item.price
+                    value: item.price,
                   })}{' '}
                   за шт.
                 </p>
               )}
             </div>
           </div>
-        )
+        );
       })}
+      <FreeShippingBanner />
       <div className="mt-3 md:mt-6 py-3 md:py-6 border-t-2 border-gray-50">
         <div className="flex flex-col items-end">
           <div className="flex flex-col items-end mb-3">
@@ -123,7 +123,7 @@ function Cart() {
             <span className="text-xl font-bold ">
               {formatCurrencyValue({
                 currency: activeCurrency,
-                value: cartTotal
+                value: cartTotal,
               })}
             </span>
           </div>
@@ -133,17 +133,17 @@ function Cart() {
         </div>
       </div>
     </React.Fragment>
-  )
+  );
 }
 
 export async function getStaticProps({ locale }) {
-  const pageData = await getPageData({ locale })
+  const pageData = await getPageData({ locale });
 
   return {
     props: {
-      ...pageData
-    }
-  }
+      ...pageData,
+    },
+  };
 }
 
-export default Cart
+export default Cart;
