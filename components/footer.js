@@ -27,6 +27,7 @@ function Footer({ categories = [], collections = [] }) {
   }
 
   const currentYear = new Date().getUTCFullYear()
+  
 
   return (
     <footer className="bg-white" aria-labelledby="footerHeading">
@@ -46,12 +47,11 @@ function Footer({ categories = [], collections = [] }) {
                     {categories.map((category) => (
                       <li key={category.id}>
                         <Link
-                          href={`/${category.type.toLowerCase()}/${
-                            category.slug
-                          }`}
+                          href={`/${category.type.toLowerCase()}/${category.slug
+                            }`}
                           className="text-base text-gray-500 hover:text-gray-900"
                         >
-                            {category.name}
+                          {category.name}
                         </Link>
                       </li>
                     ))}
@@ -67,9 +67,8 @@ function Footer({ categories = [], collections = [] }) {
                     {collections.map((collection) => (
                       <li key={collection.id}>
                         <Link
-                          href={`/${collection.type.toLowerCase()}/${
-                            collection.slug
-                          }`}
+                          href={`/${collection.type.toLowerCase()}/${collection.slug
+                            }`}
                           className="text-base text-gray-500 hover:text-gray-900"
                         >
                           {collection.name}
@@ -83,29 +82,26 @@ function Footer({ categories = [], collections = [] }) {
           </div>
           <div className="mt-12 xl:mt-0">
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-              Language &amp; Currency
+              Акции &amp; Подарки
             </h3>
-            <form className="mt-4 space-y-4 sm:max-w-xs">
-              <Select
-                className="w-full"
-                defaultValue={activeLocale.value}
-                field="language"
-                label="Language"
-                onChange={updateLocale}
-                options={locales}
-              />
-              <Select
-                className="w-full"
-                defaultValue={activeCurrency.code}
-                field="currency"
-                label="Currency"
-                onChange={updateCurrency}
-                options={currencies.map((currency) => ({
-                  label: currency.code,
-                  value: currency.code
-                }))}
-              />
-            </form>
+            <ul className="mt-4 space-y-4">
+                <li key="1">
+                  <Link
+                    href="/"
+                    className="text-base text-gray-500 hover:text-gray-900"
+                  >
+                    Бесплатная доставка
+                  </Link>
+                </li>
+                <li key="2">
+                  <Link
+                    href="/"
+                    className="text-base text-gray-500 hover:text-gray-900"
+                  >
+                    Подарок от суммы заказа
+                  </Link>
+                </li>
+            </ul>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
@@ -119,7 +115,7 @@ function Footer({ categories = [], collections = [] }) {
               <GitHubIcon className="h-6 w-6" aria-hidden="true" />
             </Link>
           </div>
-          <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+          <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1 mb-16 md:mb-0">
             &copy; {currentYear} GraphCMS GmbH. All rights reserved.
           </p>
         </div>

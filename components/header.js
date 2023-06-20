@@ -19,6 +19,14 @@ function Header({ pages = [] }) {
           </Link>
           {pages.length ? (
             <ul className="hidden md:mx-auto md:block md:flex-grow">
+              <li
+                  key="1"
+                  className="block my-4 md:inline-block md:my-0"
+                >
+                  <Link href="/" className="text-lightgray hover:text-slategray hover:bg-gainsboro rounded-full py-2 px-3 font-medium">
+                    ToyBeary
+                  </Link>
+                </li>
               {pages.map((page) => (
                 <li
                   key={page.id}

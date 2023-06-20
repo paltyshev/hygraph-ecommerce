@@ -1,1 +1,1 @@
-export { default as HygraphSVG } from './hygraph'
+export { default as HygraphSVG } from './toybeary'

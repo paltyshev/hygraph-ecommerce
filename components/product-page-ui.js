@@ -70,7 +70,7 @@ function ProductPageUI({ product }) {
     originalHeight: image.height,
     originalWidth: image.width,
     originalTitle: product.name,
-    originalAlt: product.name,
+    originalAlt: image.altText,
   }));
 
   const handleQuantityChange = (quantity) => {
@@ -201,6 +201,14 @@ function ProductPageUI({ product }) {
       {product.content && <ProductContent product={product} />}
       <div className="my-8">
         <ProductReviews product={product} />
+      </div>
+      <div className="mb-14 md:hidden px-3 z-10 fixed inset-x-0 bottom-0 pt-2 bg-white">
+        <Button
+          onClick={addToCart}
+          className="w-full h-12 bg-yellow-400 rounded-lg font-medium items-center justify-center text-gray-900 text-sm"
+        >
+          В корзину<br /><span className="text-xs">Доставим с 26 июня</span>
+        </Button>
       </div>
     </div>
   );
