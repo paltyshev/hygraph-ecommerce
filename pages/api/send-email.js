@@ -25,10 +25,7 @@ async function sendEmail(req, res) {
               ${req.body.items.map(
                 (item) => `
                 <tr>
-                  <td>
-                    <img src="${item.product.images[0].url}" alt="${item.product.name}">
-                    ${item.product.name}
-                  </td>
+                  <td>${item.product.name}</td>
                   <td>${item.quantity}</td>
                   <td>${item.price}</td>
                 </tr>
