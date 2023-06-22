@@ -47,6 +47,9 @@ export default function Checkout() {
         body: JSON.stringify({
           name: data.name,
           email: data.email,
+          address: data.address,
+          items: items,
+          cartTotal: cartTotal,
         }),
         headers: {
           'Content-Type': `application/json`,
