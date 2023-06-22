@@ -2,12 +2,12 @@ import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useSettingsContext } from '@/context/settings'
-import { formatCurrencyValue } from '@/utils/format-currency-value'
+import { useSettingsContext } from '@/context/settings';
+import { formatCurrencyValue } from '@/utils/format-currency-value';
 
 function PurchasedItems({ items }) {
   const router = useRouter();
-  const { activeCurrency } = useSettingsContext()
+  const { activeCurrency } = useSettingsContext();
 
   if (!items || items.length === 0) return <p>No items purchased</p>;
 
@@ -29,7 +29,10 @@ function PurchasedItems({ items }) {
                 />
               </div>
               <div>
-                <Link href={`/products/${item.product.slug}`} className="text-gray-800 font-medium text-sm md:text-base">
+                <Link
+                  href={`/products/${item.product.slug}`}
+                  className="text-gray-800 font-medium text-sm md:text-base"
+                >
                   {item.product.name}
                 </Link>
               </div>
@@ -38,14 +41,14 @@ function PurchasedItems({ items }) {
               <p className="font-medium text-gray-800">
                 {formatCurrencyValue({
                   currency: activeCurrency,
-                  value: item.total
+                  value: item.total,
                 })}
               </p>
               {item.quantity > 1 && (
                 <p className="text-gray-400 text-sm">
                   {formatCurrencyValue({
                     currency: activeCurrency,
-                    value: item.product.price
+                    value: item.product.price,
                   })}{' '}
                   each
                 </p>
