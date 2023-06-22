@@ -13,32 +13,32 @@ async function sendEmail(req, res) {
           <p>Имя: ${req.body.name}</p>
           <p>Email: ${req.body.email}</p>
           <p>Адрес: ${req.body.address}</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Название</th>
-                <th>Количество</th>
-                <th>Цена</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${req.body.items.map(
-                (item) => `
-                <tr>
-                  <td>${item.product.name}</td>
-                  <td>${item.quantity}</td>
-                  <td>${item.price}</td>
-                </tr>
-              `
-              )}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="2">Итого:</td>
-                <td>${req.body.cartTotal}</td>
-              </tr>
-            </tfoot>
-          </table>
+          // <table>
+          //   <thead>
+          //     <tr>
+          //       <th>Название</th>
+          //       <th>Количество</th>
+          //       <th>Цена</th>
+          //     </tr>
+          //   </thead>
+          //   <tbody>
+          //     ${req.body.items.map(
+          //       (item) => `
+          //       <tr>
+          //         <td>${item.product.name}</td>
+          //         <td>${item.quantity}</td>
+          //         <td>${item.price}</td>
+          //       </tr>
+          //     `
+          //     )}
+          //   </tbody>
+          //   <tfoot>
+          //     <tr>
+          //       <td colspan="2">Итого:</td>
+          //       <td>${req.body.cartTotal}</td>
+          //     </tr>
+          //   </tfoot>
+          // </table>
         `,
     });
   } catch (error) {
