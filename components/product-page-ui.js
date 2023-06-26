@@ -131,7 +131,7 @@ function ProductPageUI({ product }) {
             {product.name}
           </h1>
           <div className="mb-6">
-            <p className="font-semibold text-xl leading-8 text-yellow-600">
+            <p className="font-semibold text-xl leading-8">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: product.price,
