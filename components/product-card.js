@@ -24,10 +24,10 @@ function ProductCard({ id, images, name, price, slug }) {
           ) : null}
 
           <div className="pt-3 md:pt-6 text-center">
-            <p className="text-gray-800 font-semibold text-lg group-hover:text-indigo-600 mb-1">
+            <p className="text-gray-800 font-semibold text-lg group-hover:text-yellow-700 mb-1">
               {name}
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-600 text-sm">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: price
