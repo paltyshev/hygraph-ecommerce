@@ -16,7 +16,7 @@ function Header({ pages = [] }) {
         <nav className="flex items-center justify-between flex-wrap space-x-4">
           <Link
             href="/"
-            className="flex items-center text-lightgray hover:text-slategray hover:bg-gainsboro rounded-full px-3 font-medium"
+            className="flex items-center text-lightgray hover:text-slategray hover:bg-gainsboro rounded-full pr-3 font-medium"
           >
             <HygraphSVG className="h-auto text-primary w-5 flex-shrink-0" />{' '}
             ToyBeary

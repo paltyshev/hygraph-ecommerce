@@ -12,6 +12,8 @@ import ProductContent from './product-content';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import QuantitySelector from './quantity-selector';
+import { Pin } from '@/icons';
+import Link from 'next/link';
 
 const ProductReviews = dynamic(() => import('@/components/product-reviews'), {
   loading: () => <p>Загрузка...</p>,
@@ -77,6 +79,52 @@ function ProductPageUI({ product }) {
     setSelectedQuantity(quantity);
   };
 
+  function dateFormat(date, days) {
+    date.setDate(date.getDate() + days);
+    let day = date.getDate();
+    let month = date.getMonth();
+    let fmonth = '';
+    switch (month) {
+      case 0:
+        fmonth = 'января';
+        break;
+      case 1:
+        fmonth = 'февраля';
+        break;
+      case 2:
+        fmonth = 'марта';
+        break;
+      case 3:
+        fmonth = 'апреля';
+        break;
+      case 4:
+        fmonth = 'мае';
+        break;
+      case 5:
+        fmonth = 'июня';
+        break;
+      case 6:
+        fmonth = 'июля';
+        break;
+      case 7:
+        fmonth = 'августа';
+        break;
+      case 8:
+        fmonth = 'сентября';
+        break;
+      case 9:
+        fmonth = 'октября';
+        break;
+      case 10:
+        fmonth = 'ноября';
+        break;
+      case 11:
+        fmonth = 'декабря';
+        break;
+    }
+    return day + ' ' + fmonth;
+  }
+
   return (
     <div>
       <div className="lg:flex lg:space-x-4">
@@ -130,13 +178,15 @@ function ProductPageUI({ product }) {
           <h1 className="font-bold text-xl md:text-6xl mb-3 text-primary leading-tight">
             {product.name}
           </h1>
-          <div className="mb-6">
-            <p className="font-semibold text-xl leading-8">
+          <div className="mb-3 p-3 bg-amber-100 rounded-lg">
+            <span className="font-semibold text-xl">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: product.price,
               })}
-            </p>
+            </span>
+            <br />
+            <span className="text-sm">оплата при получении</span>
           </div>
           <div className="mb-6">
             <p className="text-gray-500 flex-none">{product.description}</p>
@@ -209,20 +259,62 @@ function ProductPageUI({ product }) {
               </div>
             </div>
           </div>
+          <div className="mb-6">
+            <label
+              className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
+              htmlFor="quantity"
+            >
+              Информация о доставке
+            </label>
+            <div class="flex items-center">
+              <div class="mr-4">
+                <Pin />
+              </div>
+              <div class="flex-1 border-b-2 pb-1">
+                <span className="font-semibold text-gray-800">
+                  Почта России
+                </span>
+                <br />
+                <span className="text-sm text-gray-600">
+                  с {dateFormat(new Date(), 7)} по {dateFormat(new Date(), 14)}{' '}
+                  -{' '}
+                  <span className="text-gray-800 font-semibold">от 350 ₽</span>
+                </span>
+              </div>
+            </div>
+            <div class="flex items-center pt-1">
+              <div class="mr-10"></div>
+              <div class="flex-1">
+                <span className="font-semibold">Бесплатная доствка</span>
+                <br />
+                <span className="text-sm text-gray-600">
+                  При покупке от{' '}
+                  <span className="text-gray-800 font-semibold">1 900 ₽</span> -{' '}
+                  <Link href="/" className="text-amber-600 font-semibold">
+                    подробнее
+                  </Link>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute left-0 w-full h-6 bg-blue-50"></div>
         </div>
       </div>
       {product.content && <ProductContent product={product} />}
+      <div class="absolute left-0 w-full h-6 bg-blue-50"></div>
       <div className="my-8">
         <ProductReviews product={product} />
       </div>
       <div className="mb-14 md:hidden px-3 z-10 fixed inset-x-0 bottom-0 pt-2 bg-white">
         <Button
           onClick={addToCart}
-          className="w-full h-12 bg-yellow-400 rounded-lg font-medium items-center justify-center text-gray-900 text-sm"
+          className="w-full h-12 bg-amber-400 rounded-lg font-medium items-center justify-center text-gray-900 text-sm"
         >
           В корзину
           <br />
-          <span className="text-xs">Доставим с 26 июня</span>
+          <span className="text-xs">
+            Доставим с {dateFormat(new Date(), 7)}
+          </span>
         </Button>
       </div>
     </div>
