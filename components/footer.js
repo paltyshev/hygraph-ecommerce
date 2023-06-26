@@ -40,8 +40,8 @@ function Footer({ categories = [], collections = [] }) {
             <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
               {categories.length ? (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                    Categories
+                  <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase">
+                    Категории
                   </h3>
                   <ul className="mt-4 space-y-4">
                     {categories.map((category) => (
@@ -60,8 +60,8 @@ function Footer({ categories = [], collections = [] }) {
               ) : null}
               {collections.length ? (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                    Collections
+                  <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase">
+                    Коллекции
                   </h3>
                   <ul className="mt-4 space-y-4">
                     {collections.map((collection) => (
@@ -81,7 +81,7 @@ function Footer({ categories = [], collections = [] }) {
             </div>
           </div>
           <div className="mt-12 xl:mt-0">
-            <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+            <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase">
               Акции &amp; Подарки
             </h3>
             <ul className="mt-4 space-y-4">
@@ -115,8 +115,8 @@ function Footer({ categories = [], collections = [] }) {
               <GitHubIcon className="h-6 w-6" aria-hidden="true" />
             </Link>
           </div>
-          <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1 mb-16 md:mb-0">
-            &copy; {currentYear} GraphCMS GmbH. All rights reserved.
+          <p className="mt-8 text-base text-gray-600 md:mt-0 md:order-1 mb-16 md:mb-0">
+            &copy; {currentYear} ToyBeary — интренет-магазин
           </p>
         </div>
       </div>

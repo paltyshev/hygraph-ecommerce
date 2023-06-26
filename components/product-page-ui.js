@@ -94,7 +94,19 @@ function ProductPageUI({ product }) {
               .image-gallery-content.fullscreen{background:#fff}
             `}</style>
             <ImageGallery
-              items={images}
+              items={[
+                {
+                  original: images[0].original,
+                  originalAlt: images[0].originalAlt,
+                  originalWidth: images[0].originalWidth,
+                  originalHeight: images[0].originalHeight,
+                  originalTitle: images[0].originalTitle,
+                  sizes: '100vw',
+                  lazyLoad: false, // отключаем ленивую загрузку только для первой картинки
+                },
+                ...images.slice(1), // остальные картинки
+              ]}
+              lazyLoad={true}
               renderItem={(item) => (
                 <Image
                   src={item.original}
@@ -103,13 +115,14 @@ function ProductPageUI({ product }) {
                   height={item.originalHeight}
                   title={item.originalTitle}
                   sizes="100vw"
+                  priority
                 />
               )}
               showThumbnails={false}
               showNav={false}
               useBrowserFullscreen={false}
               showPlayButton={false}
-              showBullets={true}
+              showBullets={false}
             />
           </div>
         </div>
@@ -118,7 +131,7 @@ function ProductPageUI({ product }) {
             {product.name}
           </h1>
           <div className="mb-6">
-            <p className="font-semibold text-xl leading-8 text-yellow-500">
+            <p className="font-semibold text-xl leading-8">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: product.price,
@@ -207,7 +220,9 @@ function ProductPageUI({ product }) {
           onClick={addToCart}
           className="w-full h-12 bg-yellow-400 rounded-lg font-medium items-center justify-center text-gray-900 text-sm"
         >
-          В корзину<br /><span className="text-xs">Доставим с 26 июня</span>
+          В корзину
+          <br />
+          <span className="text-xs">Доставим с 26 июня</span>
         </Button>
       </div>
     </div>
