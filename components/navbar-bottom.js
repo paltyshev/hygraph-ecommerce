@@ -50,7 +50,7 @@ function NavbarBottom() {
 
         <div className="top-0 absolute left-10">
           {cartItemsCount > 0 && (
-            <p className="flex h-1 w-1 items-center justify-center rounded-full bg-yellow-500 p-2 text-xs text-white">
+            <p className="flex h-1 w-1 items-center justify-center rounded-full bg-amber-500 p-2 text-xs text-white">
               {cartItemsCount}
             </p>
           )}

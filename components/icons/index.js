@@ -10,3 +10,4 @@ export { default as FiMenuIcon } from './fi-menu';
 export { default as FiTruckIcon } from './fi-truck';
 export { default as FiShoppingCartIcon } from './fi-shopping-cart';
 export { default as Check } from './check';
+export { default as Pin } from './pin';

@@ -24,22 +24,22 @@ function ProductContent({ product }) {
     h5: ({ children }) => <h5 className="text-xl">{children}</h5>,
     h6: ({ children }) => <h6 className="text-large">{children}</h6>,
     p: ({ children }) => (
-      <p className="prose text-sm md:text-base md:max-w-none">{children}</p>
+      <p className="prose md:text-base md:max-w-none">{children}</p>
     ),
     ul: ({ children }) => (
-      <ul className="prose list-disc list-inside my-4 text-sm">{children}</ul>
+      <ul className="prose list-disc list-inside my-4">{children}</ul>
     ),
     ol: ({ children }) => (
       <ol className="list-decimal pl-4 my-4">{children}</ol>
     ),
     li: ({ children }) => <li className="my-2">{children}</li>,
     code: ({ children }) => (
-      <code className="bg-gray-100 dark:bg-gray-800 rounded-md p-2 text-sm">
+      <code className="bg-gray-100 dark:bg-gray-800 rounded-md p-2">
         {children}
       </code>
     ),
     code_block: ({ children }) => (
-      <pre className="bg-gray-100 dark:bg-gray-800 overflow-y-scroll rounded-md p-2 text-sm">
+      <pre className="bg-gray-100 dark:bg-gray-800 overflow-y-scroll rounded-md p-2">
         {children}
       </pre>
     ),
@@ -52,17 +52,12 @@ function ProductContent({ product }) {
           justifyContent: 'center',
         }}
       >
-        <Image
-          src={src}
-          alt={altText}
-          height={height}
-          width={width}
-        />
+        <Image src={src} alt={altText} height={height} width={width} />
       </div>
     ),
   };
   return (
-    <div className="pt-6">
+    <div className="pt-10 pb-4">
       <div className="border-b-2 pb-4">
         <button
           className="text-lg text-left w-full flex justify-between items-start text-gray-400"

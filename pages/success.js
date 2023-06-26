@@ -25,7 +25,7 @@ function SuccessPage() {
   // if (loading) return 'loading';
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-yellow-200">
+    <div className="flex flex-col items-center justify-center h-screen bg-amber-200">
       <div className="p-6">
         <div className="flex items-center justify-center">
           <Check style={{ color: '#4caf50' }} />
