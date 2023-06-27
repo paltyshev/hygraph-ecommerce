@@ -1,5 +1,8 @@
 import AccentButton from '@/components/ui/accent-button';
 import Link from 'next/link';
+import Image from 'next/image';
+import terminal from '/components/images/terminal.jpg';
+import { Quality } from '@/icons';
 
 export default function Payment() {
   return (
@@ -36,11 +39,15 @@ export default function Payment() {
           России. Вы можете осмотреть товар и убедиться в его качестве перед
           оплатой. Оплата производится наличными или банковской картой.
         </p>
-        <img
-          src="https://via.placeholder.com/500x300"
-          alt="Почта России"
-          className="mb-4"
-        />
+        <div className="flex justify-center">
+          <Image
+            src={terminal}
+            width={412}
+            height={550}
+            alt="Терминал оплаты Почты России"
+            className="mb-4"
+          />
+        </div>
         <p className="mb-4 font-bold">
           Важно! При выборе данного варианта оплаты необходимо учитывать, что
           наложенный платеж взимается за услугу пересылки денежных средств и
@@ -53,11 +60,9 @@ export default function Payment() {
           или дефекты при получении товара, мы готовы принять его обратно и
           вернуть вам деньги.
         </p>
-        <img
-          src="https://via.placeholder.com/500x300"
-          alt="Гарантия качества"
-          className="mb-4"
-        />
+        <div className="flex justify-center">
+          <Quality />
+        </div>
         <p className="mb-4">
           Если у вас возникли какие-либо вопросы или проблемы с оплатой, наши
           менеджеры всегда готовы помочь вам. Свяжитесь с нами любым удобным для
