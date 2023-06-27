@@ -5,7 +5,7 @@ import { useCart } from 'react-use-cart';
 import dynamic from 'next/dynamic';
 
 import Button from '@/ui/button';
-import { ChevronDownSmallIcon } from '@/icons';
+import { ChevronDownSmallIcon, ChevronRight } from '@/icons';
 import { formatCurrencyValue } from '@/utils/format-currency-value';
 import { useSettingsContext } from '@/context/settings';
 import ProductContent from './product-content';
@@ -126,7 +126,7 @@ function ProductPageUI({ product }) {
   }
 
   return (
-    <div>
+    <div className="px-4">
       <div className="lg:flex lg:space-x-4">
         <div className="mb-8 md:mb-0 lg:w-1/2">
           <div className="w-full overflow-hidden relative bg-gainsboro rounded-lg">
@@ -178,15 +178,28 @@ function ProductPageUI({ product }) {
           <h1 className="font-bold text-xl md:text-6xl mb-3 text-primary leading-tight">
             {product.name}
           </h1>
-          <div className="mb-3 p-3 bg-amber-100 rounded-lg">
-            <span className="font-semibold text-xl">
+          <div className="mb-3 px-3 py-2 bg-amber-100 rounded-lg">
+            <span className="font-bold text-3xl text-gray-800">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: product.price,
               })}
             </span>
-            <br />
-            <span className="text-sm">оплата при получении</span>
+            {/* <div className="bg-teal-400 p-2 w-auto max-w-min rounded-lg">
+              <span className="font-bold text-3xl text-white">
+                {formatCurrencyValue({
+                  currency: activeCurrency,
+                  value: product.price,
+                })}
+              </span>
+            </div> */}
+            <div className="border-b my-1 h-0 border-amber-300" />
+            <Link href="/payment">
+              <div className="flex items-center justify-between pt-1">
+                <span className="text-sm">оплата при получении</span>
+                <ChevronRight className="text-amber-400" />
+              </div>
+            </Link>
           </div>
           <div className="mb-6">
             <p className="text-gray-500 flex-none">{product.description}</p>
@@ -297,15 +310,16 @@ function ProductPageUI({ product }) {
               </div>
             </div>
           </div>
-          <div class="absolute left-0 w-full h-6 bg-blue-50"></div>
+          <div class="absolute left-0 w-full h-6 bg-amber-100"></div>
         </div>
       </div>
       {product.content && <ProductContent product={product} />}
-      <div class="absolute left-0 w-full h-6 bg-blue-50"></div>
-      <div className="my-8">
+      <div class="absolute left-0 w-full h-6 bg-amber-100"></div>
+      <div className="my-4">
         <ProductReviews product={product} />
       </div>
-      <div className="mb-14 md:hidden px-3 z-10 fixed inset-x-0 bottom-0 pt-2 bg-white">
+      <div class="absolute left-0 w-full h-6 bg-amber-100"></div>
+      <div className="mb-14 md:hidden px-4 z-10 fixed inset-x-0 bottom-0 pt-2 bg-white">
         <Button
           onClick={addToCart}
           className="w-full h-12 bg-amber-400 rounded-lg font-medium items-center justify-center text-gray-900 text-sm"

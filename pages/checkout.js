@@ -69,7 +69,7 @@ export default function Checkout() {
   };
 
   return (
-    <div>
+    <div className="px-4">
       <h1>Оформление заказа</h1>
       <Form
         className="space-y-4 mt-4"

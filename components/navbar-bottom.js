@@ -6,14 +6,14 @@ import {
   FiTruckIcon,
   FiShoppingCartIcon,
 } from '@/icons';
-import { useCart } from 'react-use-cart'
+import { useCart } from 'react-use-cart';
 
 function NavbarBottom() {
-  const { totalItems } = useCart()
-  const cartItemsCount = totalItems
+  const { totalItems } = useCart();
+  const cartItemsCount = totalItems;
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-between items-center bg-white px-4 py-2">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-between items-center bg-white p-2">
       <Link
         href="/"
         className="flex basis-full flex-col items-center justify-center text-gray-600 hover:text-gray-900"
