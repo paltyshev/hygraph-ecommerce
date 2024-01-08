@@ -4,10 +4,11 @@ import Image from 'next/image'
 import { formatCurrencyValue } from '@/utils/format-currency-value'
 import { useSettingsContext } from '@/context/settings'
 
-function ProductCard({ id, images, name, price, slug }) {
+function ProductCard({ id, images, name, price, slug, categories }) {
   const { activeCurrency } = useSettingsContext()
 
   const [primaryImage] = images
+  const [primaryCategory] = categories
 
   return (
     <article key={id}>
@@ -23,11 +24,14 @@ function ProductCard({ id, images, name, price, slug }) {
             />
           ) : null}
 
-          <div className="pt-3 md:pt-6 text-center">
-            <p className="text-gray-800 font-semibold text-lg group-hover:text-amber-700 mb-1">
+          <div className="pt-3 md:pt-6">
+          <p className="text-gray-800 font-semibold text-xs font-thin uppercase group-hover:text-amber-700 mb-1 line-clamp-2">
+              {primaryCategory.name}
+            </p>
+            <p className="text-gray-800 font-semibold text-base group-hover:text-amber-700 mb-1 line-clamp-2">
               {name}
             </p>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-base">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: price
