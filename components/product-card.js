@@ -17,8 +17,8 @@ function ProductCard({ id, images, name, price, slug, categories }) {
           {primaryImage ? (
             <Image
               src={primaryImage.url}
-              height={primaryImage.height}
-              width={primaryImage.width}
+              height={300}
+              width={300}
               alt={name}
               title={name}
             />
