@@ -5,6 +5,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      display: ["group-hover"],
       padding: ['first']
     }
   },

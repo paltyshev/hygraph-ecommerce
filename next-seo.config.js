@@ -1,17 +1,21 @@
 const description =
-  'Learn how to build modern, SEO ready commerce storefronts with Hygraph, Next.js and Vercel.'
-const title = 'Build Modern Commerce Experiences with a Headless CMS'
-const url = 'https://commerce.withheadlesscms.com'
+  'ToyBeary - это интернет-магазин детских развивающих игрушек, который предлагает широкий ассортимент игрушек для детей всех возрастов. У нас вы найдете игрушки, которые помогут вашему ребенку развиваться и учиться весело и интересно.'
+const title = 'ToyBeary - интернет-магазин детских развивающих игрушек'
+const url = 'https://toybeary.ru'
 
 const seo = {
   title,
   titleTemplate: '%s | ToyBeary',
   description,
+  themeColor: '#FFBF00',
   openGraph: {
     description,
     title,
+    locale: 'ru_RU',
     type: 'website',
-    url
+    url,
+    title,
+    description
   },
   twitter: {
     handle: '@Hygraphcom',

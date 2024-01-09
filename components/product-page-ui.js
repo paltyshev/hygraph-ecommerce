@@ -310,15 +310,15 @@ function ProductPageUI({ product }) {
               </div>
             </div>
           </div>
-          <div class="absolute left-0 w-full h-6 bg-amber-100"></div>
+          <div class="lg:hidden absolute left-0 w-full h-6 bg-amber-100"></div>
         </div>
       </div>
       {product.content && <ProductContent product={product} />}
-      <div class="absolute left-0 w-full h-6 bg-amber-100"></div>
+      <div class="lg:hidden absolute left-0 w-full h-6 bg-amber-100"></div>
       <div className="my-4">
         <ProductReviews product={product} />
       </div>
-      <div class="absolute left-0 w-full h-6 bg-amber-100"></div>
+      <div class="lg:hidden absolute left-0 w-full h-6 bg-amber-100"></div>
       <div className="mb-14 md:hidden px-4 z-10 fixed inset-x-0 bottom-0 pt-2 bg-white">
         <Button
           onClick={addToCart}
