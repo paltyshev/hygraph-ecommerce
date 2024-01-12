@@ -150,7 +150,7 @@ function ProductPageUI({ product }) {
                   originalHeight: images[0].originalHeight,
                   originalTitle: images[0].originalTitle,
                   sizes: '100vw',
-                  lazyLoad: false, // отключаем ленивую загрузку только для первой картинки
+                  lazyLoad: false, // отключаем ленивую загрузку только для первой картинк
                 },
                 ...images.slice(1), // остальные картинки
               ]}
