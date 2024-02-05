@@ -6,8 +6,8 @@ function Check(props) {
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="#4caf50"
-      // class="w-16 h-16 stroke-green-500"
-      class="w-16 h-16"
+      // className="w-16 h-16 stroke-green-500"
+      className="w-16 h-16"
     >
       <path
         stroke-linecap="round"

@@ -10,7 +10,7 @@ function Quality(props) {
       height="1em"
       width="1em"
       xmlns="http://www.w3.org/2000/svg"
-      class="w-48 h-48"
+      className="w-48 h-48"
       {...props}
     >
       <polygon
