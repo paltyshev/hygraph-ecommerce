@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 import { GitHubIcon, TwitterIcon } from '@/icons'
-import { Select } from '@/ui/form'
+import {Button} from '@nextui-org/react'
 import { currencies, locales } from 'hygraph.config'
 import { useSettingsContext } from '@/context/settings'
 
@@ -43,6 +43,7 @@ function Footer({ categories = [], collections = [] }) {
                   <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase">
                     Категории
                   </h3>
+                  <Button>Click me</Button>
                   <ul className="mt-4 space-y-4">
                     {categories.map((category) => (
                       <li key={category.id}>

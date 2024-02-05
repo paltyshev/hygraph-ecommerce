@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useCart } from 'react-use-cart';
 import dynamic from 'next/dynamic';
 
-import Button from '@/ui/button';
+import { Button } from '@nextui-org/react'
 import { ChevronDownSmallIcon, ChevronRight } from '@/icons';
 import { formatCurrencyValue } from '@/utils/format-currency-value';
 import { useSettingsContext } from '@/context/settings';
