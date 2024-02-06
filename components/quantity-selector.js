@@ -18,7 +18,7 @@ const QuantitySelector = ({ onChange, defaultValue = 1 }) => {
   return (
     <div className="flex items-center">
       <button
-        className="h-12 bg-gainsboro border-2 border-amber-400 border-r-0 text-gray-700 font-bold py-2 px-4 rounded-l-lg"
+        className="h-12 border-2 border-primary border-r-0 text-primary font-bold py-2 px-4 rounded-l-lg bg-background"
         onClick={handleDecrease}
       >
         -
@@ -26,7 +26,7 @@ const QuantitySelector = ({ onChange, defaultValue = 1 }) => {
       <input
         id="quantity"
         name="quantity"
-        className="h-12 appearance-none  bg-gainsboro border-l-0 border-r-0 border-2 border-amber-400 py-2 px-4 rounded-none w-10 text-center"
+        className="h-12 border-l-0 border-r-0 border-2 border-primary py-2 px-4 rounded-none w-10 text-center bg-background"
         value={quantity}
         onChange={(e) => {
           const value = parseInt(e.target.value);
@@ -35,7 +35,7 @@ const QuantitySelector = ({ onChange, defaultValue = 1 }) => {
         }}
       />
       <button
-        className="h-12 border-2 border-amber-400 border-l-0 text-gray-700 font-bold py-2 px-4 rounded-r-lg"
+        className="h-12 border-2 border-primary border-l-0 text-primary font-bold py-2 px-4 rounded-r-lg bg-background"
         onClick={handleIncrease}
       >
         +

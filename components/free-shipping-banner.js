@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useCart } from 'react-use-cart';
+import { Progress } from "@nextui-org/react";
 
 function FreeShippingBanner() {
   const { cartTotal } = useCart();
@@ -44,14 +45,12 @@ function FreeShippingBanner() {
 
   return (
     <div>
-      <div className="bg-gray-100 h-2 rounded-full">
-        <div
-          className={`${
-            isFreeShipping ? 'bg-green-500' : 'bg-green-500'
-          } h-2 rounded-full`}
-          style={{ width: `${progress}%` }}
-        ></div>
-      </div>
+      <Progress
+        size="sm"
+        aria-label="Прогресс достижения бесплатной доставки"
+        aria-valuetext={`${Math.round(progress)}%`}
+        value={progress}
+      />
       <div className="text-center text-xs text-gray-500 pt-1">
         <p>{message}</p>
       </div>

@@ -4,7 +4,7 @@ import { DefaultSeo } from 'next-seo';
 import { defaultSeo } from 'next-seo.config';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
-import NavbarBottom from '@/components/navbar-bottom';
+import NavbarBottom from '@/components/ui/navbar-bottom';
 import Router from 'next/router';
 
 function Layout({ children, footer, navigation }) {

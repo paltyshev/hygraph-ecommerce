@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import Button from '@/ui/button';
 import Form from '@/ui/form';
+import { Input, Textarea, Button } from "@nextui-org/react";
+
 
 function ProductReviewForm({ product }) {
   const { handleSubmit, ...formMethods } = useForm({
@@ -57,31 +58,31 @@ function ProductReviewForm({ product }) {
       methods={formMethods}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Form.Input
+      <Input
         field="headline"
         label="Заголовок"
         placeholder="Введите заголовок"
       />
       <div className="grid gap-4 md:grid-cols-2">
-        <Form.Input
+        <Input
           field="name"
           label="Имя"
           placeholder="Введите ваше имя"
           autoComplete="name"
         />
-        <Form.Input
+        <Input
           field="email"
           label="Email"
           placeholder="Введите ваш email"
           autoComplete="email"
         />
       </div>
-      <Form.Textarea
+      <Textarea
         field="content"
         label="Отзыв"
         placeholder="Напишите ваш отзыв"
       />
-      <Button type="submit">Отправить</Button>
+      <Button fullWidth="true" color="primary" type="submit">Отправить</Button>
     </Form>
   );
 }

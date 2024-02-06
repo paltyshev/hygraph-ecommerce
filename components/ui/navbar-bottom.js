@@ -13,38 +13,38 @@ function NavbarBottom() {
   const cartItemsCount = totalItems;
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-between items-center bg-white p-2">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-between items-center bg-background p-2">
       <Link
         href="/"
-        className="flex basis-full flex-col items-center justify-center text-gray-600 hover:text-gray-900"
+        className="flex basis-full flex-col items-center justify-center "
       >
         <FiHomeIcon size={20} />
         <span className="text-xs mt-1">Главная</span>
       </Link>
       <Link
         href="/payment"
-        className="flex basis-full flex-col items-center justify-center text-gray-600 hover:text-gray-900"
+        className="flex basis-full flex-col items-center justify-center "
       >
         <FiCreditCardIcon size={20} />
         <span className="text-xs mt-1">Оплата</span>
       </Link>
       <Link
         href="/"
-        className="flex basis-full flex-col items-center justify-center text-gray-600 hover:text-gray-900"
+        className="flex basis-full flex-col items-center justify-center "
       >
         <FiMenuIcon size={20} />
         <span className="text-xs mt-1">Меню</span>
       </Link>
       <Link
         href="/delivery"
-        className="flex basis-full flex-col items-center justify-center text-gray-600 hover:text-gray-900"
+        className="flex basis-full flex-col items-center justify-center "
       >
         <FiTruckIcon size={20} />
         <span className="text-xs mt-1">Доставка</span>
       </Link>
       <Link
         href="/cart"
-        className="flex relative basis-full flex-col items-center justify-center text-gray-600 hover:text-gray-900"
+        className="flex relative basis-full flex-col items-center justify-center "
       >
         <FiShoppingCartIcon size={20} />
 

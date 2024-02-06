@@ -30,7 +30,7 @@ function Footer({ categories = [], collections = [] }) {
   
 
   return (
-    <footer className="bg-white" aria-labelledby="footerHeading">
+    <footer className="" aria-labelledby="footerHeading">
       <h2 id="footerHeading" className="sr-only">
         Footer
       </h2>
@@ -40,17 +40,17 @@ function Footer({ categories = [], collections = [] }) {
             <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
               {categories.length ? (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold tracking-wider uppercase">
                     Категории
                   </h3>
-                  <Button>Click me</Button>
+                  <Button color='primary'>Click me</Button>
                   <ul className="mt-4 space-y-4">
                     {categories.map((category) => (
                       <li key={category.id}>
                         <Link
                           href={`/${category.type.toLowerCase()}/${category.slug
                             }`}
-                          className="text-base text-gray-500 hover:text-gray-900"
+                          className="text-base"
                         >
                           {category.name}
                         </Link>
@@ -61,7 +61,7 @@ function Footer({ categories = [], collections = [] }) {
               ) : null}
               {collections.length ? (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase">
+                  <h3 className="text-sm font-semibold tracking-wider uppercase">
                     Коллекции
                   </h3>
                   <ul className="mt-4 space-y-4">
@@ -70,7 +70,7 @@ function Footer({ categories = [], collections = [] }) {
                         <Link
                           href={`/${collection.type.toLowerCase()}/${collection.slug
                             }`}
-                          className="text-base text-gray-500 hover:text-gray-900"
+                          className="text-base"
                         >
                           {collection.name}
                         </Link>
@@ -82,14 +82,14 @@ function Footer({ categories = [], collections = [] }) {
             </div>
           </div>
           <div className="mt-12 xl:mt-0">
-            <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase">
+            <h3 className="text-sm font-semibold tracking-wider uppercase">
               Акции &amp; Подарки
             </h3>
             <ul className="mt-4 space-y-4">
                 <li key="1">
                   <Link
                     href="/"
-                    className="text-base text-gray-500 hover:text-gray-900"
+                    className="text-base"
                   >
                     Бесплатная доставка
                   </Link>
@@ -97,7 +97,7 @@ function Footer({ categories = [], collections = [] }) {
                 <li key="2">
                   <Link
                     href="/"
-                    className="text-base text-gray-500 hover:text-gray-900"
+                    className="text-base"
                   >
                     Подарок от суммы заказа
                   </Link>
@@ -105,13 +105,13 @@ function Footer({ categories = [], collections = [] }) {
             </ul>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+        <div className="mt-8 border-t pt-8 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
-            <Link href="https://twitter.com/hygraphcom" className="text-gray-400 hover:text-gray-500">
+            <Link href="https://twitter.com/hygraphcom">
               <span className="sr-only">Twitter</span>
               <TwitterIcon className="h-6 w-6" aria-hidden="true" />
             </Link>
-            <Link href="https://github.com/Hygraph" className="text-gray-400 hover:text-gray-500">
+            <Link href="https://github.com/Hygraph">
               <span className="sr-only">GitHub</span>
               <GitHubIcon className="h-6 w-6" aria-hidden="true" />
             </Link>

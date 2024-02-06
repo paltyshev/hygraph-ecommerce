@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import {Button} from '@nextui-org/react'
 
 import { formatCurrencyValue } from '@/utils/format-currency-value'
 import { useSettingsContext } from '@/context/settings'
@@ -26,22 +27,22 @@ function ProductCard({ id, images, name, price, slug, categories }) {
           ) : null}
 
           <div className="pt-3 md:pt-6">
-          <p className="text-gray-800 font-semibold text-xs font-thin uppercase group-hover:text-amber-700 mb-1">
+          <p className="font-semibold text-xs font-thin uppercase mb-1">
               {primaryCategory.name}
             </p>
-            <h2 className="text-gray-800 font-semibold text-base group-hover:text-amber-700 mb-1 line-clamp-2">
+            <h2 className="font-semibold text-base mb-1 line-clamp-2">
               {name}
             </h2>
-            <p className="text-gray-600 text-base">
+            <p className="text-base">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: price
               })}
             </p>
             <div className="mt-4 h-8 flex items-center justify-center">
-              <button className="hidden group-hover:block w-full bg-amber-500 hover:bg-amber-700 text-white font-semibold px-4 py-2 rounded-lg">
+              <Button color='primary' className="hidden group-hover:block w-full font-semibold px-4 py-2 rounded-lg">
                 В корзину
-              </button>
+              </Button>
             </div>
           </div>
         </div>
