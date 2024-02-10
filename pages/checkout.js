@@ -70,7 +70,7 @@ export default function Checkout() {
 
   return (
     <div className="px-4">
-      <h1>Оформление заказа</h1>
+      <h1 className="font-bold text-2xl text-center md:text-left">Оформление заказа</h1>
       <Form
         className="space-y-4 mt-4"
         methods={formMethods}

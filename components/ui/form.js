@@ -34,7 +34,7 @@ const Input = React.forwardRef(
           type={type}
           disabled={disabled}
           placeholder={placeholder}
-          className="appearance-none min-w-0 w-full bg-white border border-gray-300 py-2 px-4 text-base rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder-gray-400"
+          className="appearance-none min-w-0 w-full bg-white dark:bg-surface-dark-100 border border-gray-300 dark:border-surface-dark-600 py-2 px-4 text-base rounded-md text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-primary-100 focus:border-primary-100 dark:focus:ring-primary-dark-500 dark:focus:border-primary-dark-500 focus:placeholder-gray-400 dark:focus:placeholder-gray-500"
           ref={ref}
           {...props}
         />
@@ -120,7 +120,7 @@ const Textarea = React.forwardRef(
           disabled={disabled}
           placeholder={placeholder}
           rows={rows}
-          className="appearance-none min-w-0 w-full bg-white border border-gray-300 py-2 px-4 text-base rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder-gray-400"
+          className="appearance-none min-w-0 w-full bg-white border dark:bg-surface-dark-100 border border-gray-300 dark:border-surface-dark-600 py-2 px-4 text-base rounded-md text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-primary-100 focus:border-primary-100 dark:focus:ring-primary-dark-500 dark:focus:border-primary-dark-500 focus:placeholder-gray-400 focus:placeholder-gray-400"
           ref={ref}
           {...props}
         />

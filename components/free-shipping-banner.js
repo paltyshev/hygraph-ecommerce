@@ -13,7 +13,7 @@ function FreeShippingBanner() {
     message = (
       <p>
         Получите <strong>бесплатную доставку</strong> при заказе на сумму более
-        <strong className="text-green-500">{' '}{freeShippingThreshold} ₽</strong>{' '}
+        <strong className="text-accent-100 dark:text-accent-dark-500">{' '}{freeShippingThreshold} ₽</strong>{' '}
         <br />
         <Link href="/">
           <strong className="underline">
@@ -26,7 +26,7 @@ function FreeShippingBanner() {
     message = (
       <p>
         Вам осталось{' '}
-        <strong className="text-green-500">
+        <strong className="text-accent-100 dark:text-accent-dark-500">
           {freeShippingThreshold - cartTotal} ₽
         </strong>{' '}
         до бесплатной доставки
@@ -47,12 +47,12 @@ function FreeShippingBanner() {
       <div className="bg-gray-100 h-2 rounded-full">
         <div
           className={`${
-            isFreeShipping ? 'bg-green-500' : 'bg-green-500'
+            isFreeShipping ? 'bg-accent-100 dark:bg-accent-dark-500' : 'bg-accent-100 dark:bg-accent-dark-500'
           } h-2 rounded-full`}
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-      <div className="text-center text-xs text-gray-500 pt-1">
+      <div className="text-center text-xs text-gray-500 dark:text-gray-200 pt-1">
         <p>{message}</p>
       </div>
     </div>

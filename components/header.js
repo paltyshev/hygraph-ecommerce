@@ -11,7 +11,7 @@ function Header({ pages = [] }) {
   const { activeCurrency } = useSettingsContext();
 
   return (
-    <header className="max-w-7xl mx-auto bg-white flex-grow flex items-center justify-between px-4 sm:px-6">
+    <header className="max-w-7xl mx-auto flex-grow flex items-center justify-between px-4 sm:px-6">
       <div className="py-4 w-full">
         <nav className="flex items-center justify-between flex-wrap space-x-4">
           <Link
@@ -41,10 +41,10 @@ function Header({ pages = [] }) {
           <div className="flex items-center">
             <Link href="/cart" className="flex space-x-2">
               <ShoppingCartIcon
-                className="h-6 w-6 text-gray-400"
+                className="h-6 w-6 text-gray-400 dark:text-white"
                 aria-hidden="true"
               />
-              <span className="text-gray-900">
+              <span className="text-gray-900 dark:text-slate-100">
                 {formatCurrencyValue({
                   currency: activeCurrency,
                   value: cartTotal,

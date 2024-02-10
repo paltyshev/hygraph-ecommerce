@@ -10,7 +10,7 @@ function Toybeary(props) {
     >
       <g
         transform="translate(0.000000,842.000000) scale(0.100000,-0.100000)"
-        fill="#fbbf24"
+        fill="#FF9E85"
         stroke="none"
       >
         <path
