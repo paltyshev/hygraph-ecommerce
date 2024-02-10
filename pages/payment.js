@@ -7,15 +7,15 @@ import { Quality } from '@/icons';
 export default function Payment() {
   return (
     <div>
-      <div className="bg-amber-400 text-gray-800 h-5/6 mb-6">
+      <div className=" dark:bg-surface-dark-100 text-gray-800 dark:text-gray-100 h-5/6 mb-6">
         <div className="container mx-auto p-4">
           <img
             src="https://cdn2.ozone.ru/s3/ob-frontend/prod/release/all/static/assets/images/installment-hero-main.png"
             alt="Оплата"
             className="mx-auto mb-8"
           />
-          <h1 className="text-4xl font-bold mb-4 text-white">Оплата</h1>
-          <p className="text-lg mb-8 text-white">
+          <h1 className="text-4xl font-bold mb-4 dark:text-gray-100">Оплата</h1>
+          <p className="text-lg mb-8 dark:text-gray-100">
             Оплатите заказ при получении и осмотре товара
           </p>
           <Link href="/">

@@ -7,7 +7,7 @@ const seo = {
   title,
   titleTemplate: '%s | ToyBeary',
   description,
-  themeColor: '#FFBF00',
+  themeColor: '#FF9E85',
   openGraph: {
     description,
     title,

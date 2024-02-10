@@ -48,11 +48,11 @@ function Cart() {
         {items.map((item) => {
           return (
             <div
-              className="md:bg-gray-50 md:rounded-lg flex items-center pb-3 md:py-6 md:px-6 md:mb-3"
+              className="md:bg-gray-50 dark:md:bg-surface-dark-200 md:rounded-lg flex items-center pb-3 md:py-6 md:px-6 md:mb-3"
               key={item.id}
             >
               <div className="w-3/5 flex flex-grow items-center">
-                <div className="h-16 md:h-20 w-16 md:w-20 mr-4 bg-gray-50 p-1 rounded-lg">
+                <div className="h-16 md:h-20 w-16 md:w-20 mr-4 bg-gray-50 dark:bg-surface-dark-300 p-1 rounded-lg">
                   <Image
                     src={item.image.url}
                     width={item.image.width}
@@ -64,13 +64,13 @@ function Cart() {
                   <div className="grid">
                     <Link
                       href={`/products/${item[router.locale].slug}`}
-                      className="truncate text-gray-800 font-medium text-sm md:text-base pr-5"
+                      className="truncate text-gray-800 dark:text-white font-medium text-sm md:text-base pr-5"
                     >
                       {item[router.locale].name}
                     </Link>
                   </div>
                   <button
-                    className="text-gray-400 hover:text-indigo-600 text-xs flex items-center focus:outline-none"
+                    className="text-gray-400 hover:text-primary-100 dark:hover:text-primary-dark-500 text-xs flex items-center focus:outline-none"
                     onClick={() => removeItem(item.id)}
                     disabled={submissionLoading}
                   >
@@ -81,7 +81,7 @@ function Cart() {
               </div>
               <div className="hidden md:flex flex-col items-center ml-auto">
                 <button
-                  className="text-gray-400 hover:text-indigo-600 focus:outline-none p-1"
+                  className="text-gray-400 hover:text-primary-100 dark:hover:text-primary-dark-500 focus:outline-none p-1"
                   onClick={() => incrementItemQuantity(item)}
                   disabled={submissionLoading}
                 >
@@ -89,7 +89,7 @@ function Cart() {
                 </button>
                 <span className="mx-3 md:mx-6 p-1">{item.quantity}</span>
                 <button
-                  className="text-gray-400 hover:text-indigo-600 focus:outline-none p-1"
+                  className="text-gray-400 hover:text-primary-100 dark:hover:text-primary-dark-500 focus:outline-none p-1"
                   onClick={() => decrementItemQuantity(item)}
                   disabled={submissionLoading}
                 >
@@ -97,7 +97,7 @@ function Cart() {
                 </button>
               </div>
               <div className="text-right md:w-1/5">
-                <p className="font-medium text-gray-800">
+                <p className="font-medium text-gray-800 dark:text-white">
                   {formatCurrencyValue({
                     currency: activeCurrency,
                     value: item.itemTotal,
@@ -117,10 +117,10 @@ function Cart() {
           );
         })}
         <FreeShippingBanner />
-        <div className="mt-3 md:mt-6 py-3 md:py-6 border-t-2 border-gray-50">
+        <div className="mt-3 md:mt-6 py-3 md:py-6 border-t-2 border-gray-50 dark:border-surface-dark-300">
           <div className="flex flex-col items-end">
             <div className="flex flex-col items-end mb-3">
-              <span className="text-gray-700">Подитог:</span>
+              <span className="text-gray-700 dark:text-gray-200">Подитог:</span>
               <span className="text-xl font-bold ">
                 {formatCurrencyValue({
                   currency: activeCurrency,

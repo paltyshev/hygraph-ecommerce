@@ -129,7 +129,7 @@ function ProductPageUI({ product }) {
     <div className="px-4">
       <div className="lg:flex lg:space-x-4">
         <div className="mb-8 md:mb-0 lg:w-1/2">
-          <div className="w-full overflow-hidden relative bg-gainsboro rounded-lg">
+          <div className="w-full overflow-hidden relative dark:bg-surface-dark-200 rounded-lg">
             {/* <Image
               src={product.images[1].url}
               height={product.images[1].height}
@@ -175,34 +175,26 @@ function ProductPageUI({ product }) {
           </div>
         </div>
         <div className="md:py-3 lg:w-1/2">
-          <h1 className="font-bold text-xl md:text-6xl mb-3 text-primary leading-tight">
+          <h1 className="font-bold text-xl md:text-6xl mb-3 dark:text-white leading-tight">
             {product.name}
           </h1>
-          <div className="mb-3 px-3 py-2 bg-amber-100 rounded-lg">
-            <span className="font-bold text-3xl text-gray-800">
+          <div className="mb-3 px-3 py-2 bg-neutral-100 dark:bg-surface-dark-200 rounded-lg">
+            <span className="font-bold text-3xl text-accent-200 dark:text-accent-dark-500">
               {formatCurrencyValue({
                 currency: activeCurrency,
                 value: product.price,
               })}
             </span>
-            {/* <div className="bg-teal-400 p-2 w-auto max-w-min rounded-lg">
-              <span className="font-bold text-3xl text-white">
-                {formatCurrencyValue({
-                  currency: activeCurrency,
-                  value: product.price,
-                })}
-              </span>
-            </div> */}
-            <div className="border-b my-1 h-0 border-amber-300" />
+            <div className="border-b my-1 h-0 border-neutral-400 dark:border-surface-dark-400" />
             <Link href="/payment">
               <div className="flex items-center justify-between pt-1">
-                <span className="text-sm">оплата при получении</span>
-                <ChevronRight className="text-amber-400" />
+                <span className="text-sm dark:text-surface-dark-600">оплата при получении</span>
+                <ChevronRight className="text-neutral-400 dark:text-surface-dark-600" />
               </div>
             </Link>
           </div>
           <div className="mb-6">
-            <p className="text-gray-500 flex-none">{product.description}</p>
+            <p className="text-gray-500 dark:text-white flex-none">{product.description}</p>
           </div>
           <div className=" -mx-3">
             {product.variants.length > 1 ? (
@@ -283,15 +275,15 @@ function ProductPageUI({ product }) {
               <div class="mr-4">
                 <Pin />
               </div>
-              <div class="flex-1 border-b-2 pb-1">
+              <div class="flex-1 border-b-2 pb-1 dark:border-surface-dark-400">
                 <span className="font-semibold text-gray-800">
                   Почта России
                 </span>
                 <br />
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-gray-600 dark:text-surface-dark-600">
                   с {dateFormat(new Date(), 7)} по {dateFormat(new Date(), 14)}{' '}
                   -{' '}
-                  <span className="text-gray-800 font-semibold">от 350 ₽</span>
+                  <span className="text-accent-200 dark:text-accent-dark-500 font-semibold">от 350 ₽</span>
                 </span>
               </div>
             </div>
@@ -300,29 +292,29 @@ function ProductPageUI({ product }) {
               <div class="flex-1">
                 <span className="font-semibold">Бесплатная доствка</span>
                 <br />
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-gray-600 dark:text-surface-dark-600">
                   При покупке от{' '}
-                  <span className="text-gray-800 font-semibold">1 900 ₽</span> -{' '}
-                  <Link href="/" className="text-amber-600 font-semibold">
+                  <span className="text-accent-200 dark:text-accent-dark-500 font-semibold">1 900 ₽</span> -{' '}
+                  <Link href="/" className="text-gray-600 dark:text-surface-dark-600 font-semibold">
                     подробнее
                   </Link>
                 </span>
               </div>
             </div>
           </div>
-          <div class="lg:hidden absolute left-0 w-full h-6 bg-amber-100"></div>
+          <div class="lg:hidden absolute left-0 w-full h-6 bg-neutral-100 dark:bg-surface-dark-200"></div>
         </div>
       </div>
       {product.content && <ProductContent product={product} />}
-      <div class="lg:hidden absolute left-0 w-full h-6 bg-amber-100"></div>
+      <div class="lg:hidden absolute left-0 w-full h-6 bg-neutral-100 dark:bg-surface-dark-200"></div>
       <div className="my-4">
         <ProductReviews product={product} />
       </div>
-      <div class="lg:hidden absolute left-0 w-full h-6 bg-amber-100"></div>
-      <div className="mb-14 md:hidden px-4 z-10 fixed inset-x-0 bottom-0 pt-2 bg-white">
+      <div class="lg:hidden absolute left-0 w-full h-6 bg-neutral-100 dark:bg-surface-dark-200"></div>
+      <div className="mb-14 md:hidden px-4 z-10 fixed inset-x-0 bottom-0 pt-2 bg-white dark:bg-surface-dark-200">
         <Button
           onClick={addToCart}
-          className="w-full h-12 bg-amber-400 rounded-lg font-medium items-center justify-center text-gray-900 text-sm"
+          className="w-full h-12 bg-primary-100 dark:bg-primary-dark-500 rounded-lg font-medium items-center justify-center text-gray-900 text-sm"
         >
           В корзину
           <br />

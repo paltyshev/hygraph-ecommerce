@@ -10,12 +10,12 @@ function ProductContent({ product }) {
   const toggleExpanded = () => setIsExpanded((expanded) => !expanded);
   const renderers = {
     h1: ({ children }) => (
-      <h1 className="mb-4 text-4xl text-gray-900 md:text-5xl lg:text-6xl">
+      <h1 className="mb-4 text-4xl text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h1 className="mb-4 text-3xl text-gray-900 md:text-5xl lg:text-6xl">
+      <h1 className="mb-4 text-3xl text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
         {children}
       </h1>
     ),
@@ -24,10 +24,10 @@ function ProductContent({ product }) {
     h5: ({ children }) => <h5 className="text-xl">{children}</h5>,
     h6: ({ children }) => <h6 className="text-large">{children}</h6>,
     p: ({ children }) => (
-      <p className="prose md:text-base md:max-w-none">{children}</p>
+      <p className="prose md:text-base md:max-w-none dark:text-surface-200">{children}</p>
     ),
     ul: ({ children }) => (
-      <ul className="prose list-disc list-inside my-4">{children}</ul>
+      <ul className="prose list-disc list-inside my-4 dark:text-white">{children}</ul>
     ),
     ol: ({ children }) => (
       <ol className="list-decimal pl-4 my-4">{children}</ol>
@@ -60,10 +60,10 @@ function ProductContent({ product }) {
     <div className="pt-10 pb-4">
       <div className="border-b-2 pb-4">
         <button
-          className="text-lg text-left w-full flex justify-between items-start text-gray-400"
+          className="text-lg text-left w-full flex justify-between items-start text-gray-400 dark:text-white"
           onClick={toggleExpanded}
         >
-          <span className="block text-sm font-bold tracking-widest uppercase mt-1 text-gray-900">
+          <span className="block text-sm font-bold tracking-widest uppercase mt-1 text-gray-900 dark:text-white">
             Описание
           </span>
           <span className="ml-6 h-7 flex items-center">
