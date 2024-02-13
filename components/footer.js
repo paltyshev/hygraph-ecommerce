@@ -106,8 +106,8 @@ function Footer({ categories = [], collections = [] }) {
         </div>
         <div className="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
-            <Link href="https://twitter.com/hygraphcom" className="text-gray-400 dark:text-slate-400 hover:text-gray-500 dark:hover:text-slate-300">
-              <span className="sr-only">Twitter</span>
+            <Link href="https://t.me/toybeary" className="text-gray-400 dark:text-slate-400 hover:text-gray-500 dark:hover:text-slate-300">
+              <span className="sr-only">Telegram</span>
               <TwitterIcon className="h-6 w-6" aria-hidden="true" />
             </Link>
             <Link href="https://github.com/Hygraph" className="text-gray-400 dark:text-slate-400 hover:text-gray-500 dark:hover:text-slate-300">

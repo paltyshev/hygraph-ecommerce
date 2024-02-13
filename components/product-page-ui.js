@@ -19,6 +19,15 @@ const ProductReviews = dynamic(() => import('@/components/product-reviews'), {
   loading: () => <p>Загрузка...</p>,
 });
 
+const colorMap = {
+  BLACK: 'bg-black',
+  DEFAULT: 'bg-white',
+  PINK: 'bg-pink-500',
+  PURPLE: 'bg-purple-500',
+  RED: 'bg-red-500',
+  BLUE: 'bg-blue-500',
+};
+
 function ProductPageUI({ product }) {
   const { addItem } = useCart();
   const router = useRouter();
@@ -37,7 +46,7 @@ function ProductPageUI({ product }) {
   const activeVariant = product.variants.find(
     (variant) => variant.id === activeVariantId
   );
-  const updateVariant = (event) => setActiveVariantId(event.target.value);
+  const updateVariant = (id) => setActiveVariantId(id);
 
   const addToCart = () => {
     const itemMetadata = router.locales.reduce(
@@ -200,31 +209,19 @@ function ProductPageUI({ product }) {
             {product.variants.length > 1 ? (
               <div className="md:w-3/4 px-3 mb-6">
                 <label
-                  className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
+                  className="block mb-2"
                   htmlFor="style"
                 >
-                  Style
+                  <span className="text-sm font-bold tracking-widest uppercase text-slategray">Цвет:</span> <span>{activeVariant.name}</span>
                 </label>
-                <div className="relative">
-                  <select
-                    id="style"
-                    name="style"
-                    value={activeVariantId}
-                    className="block appearance-none w-full bg-gainsboro border-2 border-gainsboro focus:border-slategray px-4 py-3 pr-8 focus:outline-none focus:bg-white text-slategray focus:text-slategray rounded-lg"
-                    onChange={updateVariant}
-                  >
-                    {product.variants.map((variant) => (
-                      <option key={variant.id} value={variant.id}>
-                        {variant.name}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
-                    <ChevronDownSmallIcon
-                      className="h-4 w-4 text-gray-400"
-                      aria-hidden="true"
+                <div className="flex space-x-2">
+                  {product.variants.map((variant) => (
+                    <button
+                      key={variant.id}
+                      className={`h-8 w-8 rounded-full border-2 ${activeVariantId === variant.id ? 'border-primary-100 dark:border-primary-dark-500 opacity-100' : 'border-gray-300 opacity-50'} ${colorMap[variant.color]}`}
+                      onClick={() => updateVariant(variant.id)}
                     />
-                  </div>
+                  ))}
                 </div>
               </div>
             ) : null}
@@ -275,8 +272,8 @@ function ProductPageUI({ product }) {
               <div className="mr-4">
                 <Pin />
               </div>
-              <div className="flex-1 border-b-2 pb-1 dark:border-surface-dark-400">
-                <span className="font-semibold text-gray-800">
+              <div class="flex-1 border-b-2 pb-1 dark:border-surface-dark-400">
+                <span className="font-semibold">
                   Почта России
                 </span>
                 <br />

@@ -120,7 +120,7 @@ function Cart() {
         <div className="mt-3 md:mt-6 py-3 md:py-6 border-t-2 border-gray-50 dark:border-surface-dark-300">
           <div className="flex flex-col items-end">
             <div className="flex flex-col items-end mb-3">
-              <span className="text-gray-700 dark:text-gray-200">Подитог:</span>
+              <span className="text-gray-700 dark:text-gray-200">Итого:</span>
               <span className="text-xl font-bold ">
                 {formatCurrencyValue({
                   currency: activeCurrency,

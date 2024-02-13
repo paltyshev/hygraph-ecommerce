@@ -15,8 +15,9 @@ export default function Checkout() {
     resolver: yupResolver(
       yup.object().shape({
         name: yup.string().required(),
-        email: yup.string().required().email(),
+        //email: yup.string().required().email(),
         address: yup.string().required(),
+        phone: yup.string().required(),
       })
     ),
   });
@@ -33,7 +34,8 @@ export default function Checkout() {
       const orderData = {
         name: data.name,
         address: data.address,
-        email: data.email,
+        //email: data.email,
+        phone: data.phone,
         total: cartTotal,
         items: items,
       };
@@ -46,7 +48,8 @@ export default function Checkout() {
       const res = await fetch(`/api/send-email`, {
         body: JSON.stringify({
           name: data.name,
-          email: data.email,
+          //email: data.email,
+          phone: data.phone,
           address: data.address,
           items: items,
           cartTotal: cartTotal,
@@ -79,17 +82,18 @@ export default function Checkout() {
         <Form.Input field="name" label="Имя" placeholder="Введите ваше имя" />
         <Form.Error error={errors.name} />
         <Form.Input
+          field="phone"
+          label="Телефон"
+          placeholder="Введите ваш номер телефона"
+          type="tel"
+        />
+        <Form.Error error={errors.email} />
+        <Form.Input
           field="address"
           label="Адрес"
           placeholder="Введите ваш адрес"
         />
         <Form.Error error={errors.address} />
-        <Form.Input
-          field="email"
-          label="Email"
-          placeholder="Введите ваш email"
-        />
-        <Form.Error error={errors.email} />
         <Button type="submit">Оформить заказ</Button>
       </Form>
     </div>

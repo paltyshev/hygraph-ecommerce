@@ -11,7 +11,7 @@ async function sendEmail(req, res) {
       subject: `[Новый заказ на ToyBeary]`,
       html: `
           <p>Имя: ${req.body.name}</p>
-          <p>Email: ${req.body.email}</p>
+          <p>Телефон: ${req.body.phone}</p>
           <p>Адрес: ${req.body.address}</p>
         `,
     });

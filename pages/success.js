@@ -25,22 +25,22 @@ function SuccessPage() {
   // if (loading) return 'loading';
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-amber-200">
+    <div className="flex flex-col items-center justify-center h-screen">
       <div className="p-6">
         <div className="flex items-center justify-center">
-          <Check style={{ color: '#4caf50' }} />
+          <Check className="w-32 h-32 text-primary-100 dark:text-primary-dark-200" />
         </div>
         <div className="mt-4 text-center">
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold">
             Заказ успешно оформлен!
           </h1>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2">
             Спасибо, что выбрали наш магазин. Ваш заказ был успешно оформлен и
             скоро будет доставлен.
           </p>
           <div className="absolute bottom-0 left-0 right-0 m-4">
             <Link href="/">
-              <Button className="w-full h-12 bg-white rounded-lg font-medium flex items-center justify-center text-gray-900">
+              <Button className="w-full h-12 bg-primary-100 dark:bg-primary-dark-200 rounded-lg font-medium flex items-center justify-center text-gray-900">
                 Вернуться на главную
               </Button>
             </Link>
