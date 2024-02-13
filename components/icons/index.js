@@ -13,3 +13,4 @@ export { default as Check } from './check';
 export { default as Pin } from './pin';
 export { default as ChevronRight } from './chevron-right';
 export { default as Quality } from './quality';
+export { default as DeliveryIcon } from './delivery';
