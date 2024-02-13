@@ -158,8 +158,8 @@ function ProductPageUI({ product }) {
                   originalWidth: images[0].originalWidth,
                   originalHeight: images[0].originalHeight,
                   originalTitle: images[0].originalTitle,
-                  sizes: '100vw',
-                  lazyLoad: false, // отключаем ленивую загрузку только для первой картинки
+                  sizes: '(max-width: 404px) 370px, 100vw',
+                  priority: true,
                 },
                 ...images.slice(1), // остальные картинки
               ]}
@@ -172,7 +172,7 @@ function ProductPageUI({ product }) {
                   height={item.originalHeight}
                   title={item.originalTitle}
                   sizes="100vw"
-                  priority
+                  loading='lazy'
                 />
               )}
               showThumbnails={false}
@@ -268,8 +268,8 @@ function ProductPageUI({ product }) {
             >
               Информация о доставке
             </label>
-            <div class="flex items-center">
-              <div class="mr-4">
+            <div className="flex items-center">
+              <div className="mr-4">
                 <Pin />
               </div>
               <div class="flex-1 border-b-2 pb-1 dark:border-surface-dark-400">
@@ -284,9 +284,9 @@ function ProductPageUI({ product }) {
                 </span>
               </div>
             </div>
-            <div class="flex items-center pt-1">
-              <div class="mr-10"></div>
-              <div class="flex-1">
+            <div className="flex items-center pt-1">
+              <div className="mr-10"></div>
+              <div className="flex-1">
                 <span className="font-semibold">Бесплатная доствка</span>
                 <br />
                 <span className="text-sm text-gray-600 dark:text-surface-dark-600">
@@ -299,15 +299,15 @@ function ProductPageUI({ product }) {
               </div>
             </div>
           </div>
-          <div class="lg:hidden absolute left-0 w-full h-6 bg-neutral-100 dark:bg-surface-dark-200"></div>
+          <div className="lg:hidden absolute left-0 w-full h-6 bg-neutral-100 dark:bg-surface-dark-200"></div>
         </div>
       </div>
       {product.content && <ProductContent product={product} />}
-      <div class="lg:hidden absolute left-0 w-full h-6 bg-neutral-100 dark:bg-surface-dark-200"></div>
+      <div className="lg:hidden absolute left-0 w-full h-6 bg-neutral-100 dark:bg-surface-dark-200"></div>
       <div className="my-4">
         <ProductReviews product={product} />
       </div>
-      <div class="lg:hidden absolute left-0 w-full h-6 bg-neutral-100 dark:bg-surface-dark-200"></div>
+      <div className="lg:hidden absolute left-0 w-full h-6 bg-neutral-100 dark:bg-surface-dark-200"></div>
       <div className="mb-14 md:hidden px-4 z-10 fixed inset-x-0 bottom-0 pt-2 bg-white dark:bg-surface-dark-200">
         <Button
           onClick={addToCart}
