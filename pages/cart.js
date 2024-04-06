@@ -42,11 +42,11 @@ function Cart() {
 
   if (isEmpty)
     return (
-      <div className="flex flex-col justify-center min-h-screen px-4 text-center">
+      <div className="flex flex-col justify-center min-h-screen px-4 text-center -mt-16">
         <SEO title="Корзина" />
         <div className="mx-auto mb-4">
-        <ShoppingCartIcon className="w-16 h-16 text-gray-400" />
-      </div>
+          <ShoppingCartIcon className="w-16 h-16 text-gray-400" />
+        </div>
         <h2 className="text-2xl font-semibold mb-2">Ваша корзина пуста</h2>
         <p className="text-gray-500 mb-6">
           Похоже, вы еще не добавили игрушки в корзину.
@@ -54,8 +54,8 @@ function Cart() {
           Самое время начать покупки и порадовать себя и своих близких!
         </p>
         <Link href="/">
-            <AccentButton>Продолжить покупки</AccentButton>
-          </Link>
+          <AccentButton>Продолжить покупки</AccentButton>
+        </Link>
       </div>
     );
 
@@ -123,13 +123,13 @@ function Cart() {
                     за шт.
                   </p>
                 )}
-                  <button
-                    className="text-gray-400 hover:text-primary-100 dark:hover:text-primary-dark-500 text-xs "
-                    onClick={() => removeItem(item.id)}
-                    disabled={submissionLoading}
-                  >
-                    Удалить
-                  </button>
+                <button
+                  className="text-gray-400 hover:text-primary-100 dark:hover:text-primary-dark-500 text-xs "
+                  onClick={() => removeItem(item.id)}
+                  disabled={submissionLoading}
+                >
+                  Удалить
+                </button>
               </div>
             </div>
           );
