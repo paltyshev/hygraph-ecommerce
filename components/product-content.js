@@ -24,10 +24,15 @@ function ProductContent({ product }) {
     h5: ({ children }) => <h5 className="text-xl">{children}</h5>,
     h6: ({ children }) => <h6 className="text-large">{children}</h6>,
     p: ({ children }) => (
-      <p className="prose md:text-base md:max-w-none dark:text-surface-200">{children}</p>
+      <p className="prose md:text-base md:max-w-none dark:text-surface-200">
+        {children}
+      </p>
+    ),
+    strong: ({ children }) => (
+      <strong className="text-gray-900 dark:text-surface-200">{children}</strong>
     ),
     ul: ({ children }) => (
-      <ul className="prose list-disc list-inside my-4 dark:text-white">{children}</ul>
+      <ul className="prose list-disc list-inside my-4 dark:text-surface-200">{children}</ul>
     ),
     ol: ({ children }) => (
       <ol className="list-decimal pl-4 my-4">{children}</ol>

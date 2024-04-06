@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCart } from 'react-use-cart';
 import Button from '@/components/ui/button';
+import AccentButton from '@/components/ui/accent-button';
 import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,
-  XSmallIcon,
+  ShoppingCartIcon,
 } from '@/components/icons';
 import { formatCurrencyValue } from '@/utils/format-currency-value';
 import getPageData from '@/lib/get-page-data';
@@ -39,7 +40,24 @@ function Cart() {
     router.push('/checkout');
   };
 
-  if (isEmpty) return <p>Ваша корзина пуста</p>;
+  if (isEmpty)
+    return (
+      <div className="flex flex-col justify-center min-h-screen px-4 text-center">
+        <SEO title="Корзина" />
+        <div className="mx-auto mb-4">
+        <ShoppingCartIcon className="w-16 h-16 text-gray-400" />
+      </div>
+        <h2 className="text-2xl font-semibold mb-2">Ваша корзина пуста</h2>
+        <p className="text-gray-500 mb-6">
+          Похоже, вы еще не добавили игрушки в корзину.
+          <br />
+          Самое время начать покупки и порадовать себя и своих близких!
+        </p>
+        <Link href="/">
+            <AccentButton>Продолжить покупки</AccentButton>
+          </Link>
+      </div>
+    );
 
   return (
     <React.Fragment>
@@ -64,19 +82,12 @@ function Cart() {
                   <div className="grid">
                     <Link
                       href={`/products/${item[router.locale].slug}`}
-                      className="truncate text-gray-800 dark:text-white font-medium text-sm md:text-base pr-5"
+                      className="truncate text-gray-800 dark:text-white font-medium text-sm md:text-base pr-5 pb-2"
                     >
                       {item[router.locale].name}
                     </Link>
+                    <div className="text-xs text-gray-400">{item.color}</div>
                   </div>
-                  <button
-                    className="text-gray-400 hover:text-primary-100 dark:hover:text-primary-dark-500 text-xs flex items-center focus:outline-none"
-                    onClick={() => removeItem(item.id)}
-                    disabled={submissionLoading}
-                  >
-                    <XSmallIcon className="h-3 w-3" />
-                    Удалить
-                  </button>
                 </div>
               </div>
               <div className="hidden md:flex flex-col items-center ml-auto">
@@ -112,6 +123,13 @@ function Cart() {
                     за шт.
                   </p>
                 )}
+                  <button
+                    className="text-gray-400 hover:text-primary-100 dark:hover:text-primary-dark-500 text-xs "
+                    onClick={() => removeItem(item.id)}
+                    disabled={submissionLoading}
+                  >
+                    Удалить
+                  </button>
               </div>
             </div>
           );

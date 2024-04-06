@@ -64,6 +64,7 @@ function ProductPageUI({ product }) {
     addItem(
       {
         id: activeVariantId,
+        color: activeVariant.name,
         productId: product.id,
         image: product.images[0],
         price: product.price,
